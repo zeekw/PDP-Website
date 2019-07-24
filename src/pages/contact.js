@@ -13,7 +13,7 @@ class Contact extends React.Component {
       <div id="body">
         <title>PDP - Contact Us</title>
         <Header CurrentPage="Contact"/>
-        <form id="contact-form" name="contact-us" netlify>
+        <form id="contact-form" name="contact-us" method="post" data-netlify="true">
           <h1>Contact Us</h1>
           <label>Name:</label>
           <input name="name" type="text" placeholder="John Smith"/>
