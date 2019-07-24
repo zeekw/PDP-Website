@@ -1,8 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import DonateButtonSVG from "../../public/Donate.svg"
-
 import "../styles/donatestyle.sass"
 
 class DonateButton extends React.Component {

@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import "../styles/Contributors.sass"
+import "../styles/contributors.sass"
 
 import Header from "../components/Header.js"
 import Footer from "../components/Footer.js"
