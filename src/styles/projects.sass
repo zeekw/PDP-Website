@@ -1,0 +1,50 @@
+$SwitchToMobileWidth: 800px
+
+#ProjectsDescription
+  background-color: black
+  width: 100%
+  max-width: 920px
+  margin: 30px auto
+  color: white
+  text-align: center
+  padding: 20px 15px
+  padding-bottom: 3px
+  p
+    line-height: 22px
+    font-weight: 400
+    font-size: 18px
+
+#Projects
+  width: 100%
+  max-width: 920px
+  margin: 0 auto
+  ul
+    list-style: none
+    padding-left: 0px
+    li
+      margin: 40px 0px
+      .Project
+        width: 100%
+        position: relative
+        cursor: pointer
+        overflow: hidden
+        img
+          width: 100%
+          display: block
+          transform: scale(1)
+          transition: all 0.1s
+          &:hover
+            transform: scale(1.02)
+        .ProjectTitle
+          background-color: #00000099
+          position: absolute
+          bottom: 20px
+          left: 20px
+          border-bottom: solid 5px #f17267
+          padding: 0px 10px
+          padding-top: 10px
+          padding-bottom: 5px
+          h1
+            color: white
+            font-weight: 700
+            line-height: 25px
