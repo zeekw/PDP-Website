@@ -32,7 +32,7 @@ class Header extends React.Component {
           <Link to="/blog"><li style={NavStyle("Blog")}>Blog</li></Link>
           <Link to="/contributors"><li style={NavStyle("Contributors")}>Contributors</li></Link>
           <Link to="/about"><li style={NavStyle("About")}>About</li></Link>
-          <Link to="/"><li style={NavStyle("Contact")}>Contact</li></Link>
+          <Link to="/contact"><li style={NavStyle("Contact")}>Contact</li></Link>
         </ul>
         <Dropdown id="MobileNavigator">
           <Dropdown.Toggle id="MobileNavigatorToggle">

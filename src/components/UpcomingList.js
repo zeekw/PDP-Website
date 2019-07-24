@@ -42,8 +42,12 @@ class UpcomingList extends React.Component {
       }
     }
     var data = this.props.data
+    var path = 'event'
+    if(typeof this.props.overridePath !== 'undefined'){
+      path = this.props.overridePath
+    }
     var Items = data.slice(0,this.props.limit).map((itemData) =>
-      <Link to={"/event?" + itemData.slug.current}>
+      <Link to={"/" + path + "?" + itemData.slug.current}>
         <li className="UpcomingListItem" key={itemData._id}>
           <div className="UpcomingListItemBody">
             <img className="UpcomingListItemImage" style={{display: (itemData.image == null) ? 'none' : 'inline'}} src={UrlBuilder.image(itemData.image).size(405,405).fit('crop').quality(70)}/>

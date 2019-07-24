@@ -29,6 +29,7 @@ class BlogPost extends React.Component {
   state = {
     loading: false,
     error: false,
+    opacity: 0,
     post: {
       title: "",
       body: "",
@@ -57,12 +58,13 @@ class BlogPost extends React.Component {
       if(post.data.result.length >= 1){
         this.setState({
           loading: false,
+          opacity: 1,
           post: post.data.result[0],
         })
         console.log(post.data.result[0])
       }
     }).catch(error => {
-        this.setState({ loading: false, error })
+        this.setState({ loading: false, opacity: 1, error })
     })
   }
 
@@ -106,7 +108,7 @@ class BlogPost extends React.Component {
       }
     }
     return (
-      <div id="body">
+      <div id="body" style={{opacity: this.state.opacity}}>
         <title>{this.state.post.title}</title>
         <Header CurrentPage="BlogPost"/>
         <div id="PostContainer">

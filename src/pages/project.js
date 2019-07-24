@@ -27,6 +27,7 @@ class Event extends React.Component {
   state = {
     loading: false,
     error: false,
+    opacity: 0,
     project: {
       description: [],
       image: {
@@ -35,7 +36,8 @@ class Event extends React.Component {
         }
       },
       title: '',
-      relatedEvents: []
+      relatedEvents: [],
+      relatedPosts: []
     }
   }
 
@@ -54,12 +56,13 @@ class Event extends React.Component {
       if(project.data.result.length >= 1){
         this.setState({
           loading: false,
+          opacity: 1,
           project: project.data.result[0]
         })
         console.log(project.data.result[0])
       }
     }).catch(error => {
-        this.setState({ loading: false, error })
+        this.setState({ loading: false, opacity: 1, error })
         console.log(error)
     })
   }
@@ -94,6 +97,20 @@ class Event extends React.Component {
       return formattedData
     }
 
+    var formatPostData = function(data){
+      var formattedData = []
+      for(var i=0; i<data.length; i++){
+        var node = data[i]
+        var newNode = node
+        newNode._rawDescription = newNode.body
+        newNode.image = newNode.heroImage
+        newNode.price = 'FREE'
+        newNode.date = newNode._createdAt
+        formattedData.push(newNode)
+      }
+      return formattedData
+    }
+
     const serializers = {
       types: {
         code: props => (
@@ -104,7 +121,7 @@ class Event extends React.Component {
       }
     }
     return (
-      <div id="body">
+      <div id="body" style={{opacity: this.state.opacity}}>
         <title>{this.state.project.title}</title>
         <Header CurrentPage="Project"/>
         <div id="project-body">
@@ -118,8 +135,11 @@ class Event extends React.Component {
           <div id="project-description">
             <BlockContent blocks={this.state.project.description} serializers={serializers}/>
           </div>
-          <div id="RelatedEvents">
+          <div id="Related">
+            <h1 id="RelatedEventsHeader">{(formatEventData(this.state.project.relatedEvents).length > 0) ? 'Related Events:' : ''}</h1>
             <UpcomingList data={formatEventData(this.state.project.relatedEvents)} limit={5}/>
+            <h1 id="RelatedPostsHeader">{(formatEventData(this.state.project.relatedPosts).length > 0) ? 'Related Posts:' : ''}</h1>
+            <UpcomingList data={formatPostData(this.state.project.relatedPosts)} limit={5} overridePath="blogpost"/>
           </div>
         </div>
         <Footer/>
