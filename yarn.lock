@@ -671,17 +671,41 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@fullcalendar/bootstrap@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/bootstrap/-/bootstrap-4.2.0.tgz#8ddf310e3247502ff49a1ec852eb84d443cc942b"
+
 "@fullcalendar/core@^4.2.0", "@fullcalendar/core@~4.2.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@fullcalendar/core/-/core-4.2.0.tgz#16716d6617137e54fceeb03c72f5124c92b86e58"
 
-"@fullcalendar/daygrid@^4.2.0":
+"@fullcalendar/daygrid@^4.2.0", "@fullcalendar/daygrid@~4.2.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-4.2.0.tgz#c49a9e27baf40b5a637a5d8fffa2670f19ed636b"
+
+"@fullcalendar/google-calendar@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/google-calendar/-/google-calendar-4.2.0.tgz#87fd0e7ddaa1131c9a5adcef26713874b2980fd1"
 
 "@fullcalendar/interaction@^4.2.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@fullcalendar/interaction/-/interaction-4.2.0.tgz#312e83f575aed67c33aec69884664d436aaedef2"
+
+"@fullcalendar/list@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/list/-/list-4.2.0.tgz#8eac663750af2bd0d7e64c399ab550e049283890"
+
+"@fullcalendar/luxon@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/luxon/-/luxon-4.2.0.tgz#339fd152dfe434eaca725974347dfe4c26d66c09"
+
+"@fullcalendar/moment-timezone@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/moment-timezone/-/moment-timezone-4.2.0.tgz#e133ae52e2a60872ffb50d70852d22da08eb9732"
+
+"@fullcalendar/moment@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/moment/-/moment-4.2.0.tgz#5c3a90d05c36678b7aff812ba0de75639ea8217f"
 
 "@fullcalendar/react@^4.2.0":
   version "4.2.0"
@@ -689,6 +713,46 @@
   dependencies:
     "@fullcalendar/core" "~4.2.0"
     fast-deep-equal "^2.0.1"
+
+"@fullcalendar/resource-common@^4.2.0", "@fullcalendar/resource-common@~4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/resource-common/-/resource-common-4.2.0.tgz#3d00b5584caf0a7d004643a27cfcbd02cd97b577"
+
+"@fullcalendar/resource-daygrid@^4.2.0", "@fullcalendar/resource-daygrid@~4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/resource-daygrid/-/resource-daygrid-4.2.0.tgz#dae1eafddec6cfb4d34dff02950d62d8e68e1adf"
+  dependencies:
+    "@fullcalendar/daygrid" "~4.2.0"
+    "@fullcalendar/resource-common" "~4.2.0"
+
+"@fullcalendar/resource-timegrid@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/resource-timegrid/-/resource-timegrid-4.2.0.tgz#563ef7fc4ead2cbeab70539a91ca016d85d7b226"
+  dependencies:
+    "@fullcalendar/resource-common" "~4.2.0"
+    "@fullcalendar/resource-daygrid" "~4.2.0"
+    "@fullcalendar/timegrid" "~4.2.0"
+
+"@fullcalendar/resource-timeline@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/resource-timeline/-/resource-timeline-4.2.0.tgz#7cb2f8a5a8570be081f730b93f9e043740043270"
+  dependencies:
+    "@fullcalendar/resource-common" "~4.2.0"
+    "@fullcalendar/timeline" "~4.2.0"
+
+"@fullcalendar/rrule@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/rrule/-/rrule-4.2.0.tgz#43042b9a4230939bce56b0c655aa24703192eaf2"
+
+"@fullcalendar/timegrid@^4.2.0", "@fullcalendar/timegrid@~4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/timegrid/-/timegrid-4.2.0.tgz#e2372ba108f5da8e38c915366c2101b4365ff409"
+  dependencies:
+    "@fullcalendar/daygrid" "~4.2.0"
+
+"@fullcalendar/timeline@^4.2.0", "@fullcalendar/timeline@~4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/timeline/-/timeline-4.2.0.tgz#368a031ea583a9b5c04cffe51983bd7af211a178"
 
 "@gatsbyjs/relay-compiler@2.0.0-printer-fix.2":
   version "2.0.0-printer-fix.2"
@@ -4729,6 +4793,10 @@ fstream@^1.0.0, fstream@^1.0.12:
     inherits "~2.0.0"
     mkdirp ">=0.5 0"
     rimraf "2"
+
+fullcalendar-gatsby@zeekw/fullcalendar-gatsby#master:
+  version "0.0.0"
+  resolved "https://codeload.github.com/zeekw/fullcalendar-gatsby/tar.gz/66ff8dcf7f04f83d854da9899d6356b9e95476e5"
 
 function-bind@^1.0.2, function-bind@^1.1.1:
   version "1.1.1"

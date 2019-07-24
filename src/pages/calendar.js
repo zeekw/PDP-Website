@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import FullCalendar from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid'
+import FullCalendar from 'fullcalendar-gatsby/react'
+import dayGridPlugin from 'fullcalendar-gatsby/daygrid'
 
 import "../styles/calendar.sass"
 
