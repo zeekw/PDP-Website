@@ -6,10 +6,6 @@ import "../styles/projects.sass"
 import Header from "../components/Header.js"
 import Footer from "../components/Footer.js"
 
-import Wolf3x1 from "../../Static/Photos/WolfInSkins-3x1.jpg"
-import Leah3x1 from "../../Static/Photos/LeahStein-3x1.jpg"
-import Gabi3x1 from "../../Static/Photos/Gabi-3x1.jpg"
-
 class Projects extends React.Component {
 
   ImageRefToUrl(_ref, size, hotspot){
