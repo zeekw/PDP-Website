@@ -96,17 +96,19 @@ class Index extends React.Component {
   }
 
   MutateSanity(mutations){
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-    xhr.addEventListener("readystatechange", function () {
-      if (this.readyState === 4) {
-        console.log(this.responseText);
-      }
-    });
-    xhr.open("POST", "https://ocpl5ulk.api.sanity.io/v1/data/mutate/pdp-data");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", "Bearer " + process.env.SANITY_TOKEN);
-    xhr.send(mutations);
+    if(typeof XMLHttpRequest !== "undefined"){
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+          console.log(this.responseText);
+        }
+      });
+      xhr.open("POST", "https://ocpl5ulk.api.sanity.io/v1/data/mutate/pdp-data");
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.setRequestHeader("Authorization", "Bearer " + process.env.SANITY_TOKEN);
+      xhr.send(mutations);
+    }
   }
 
   render() {
