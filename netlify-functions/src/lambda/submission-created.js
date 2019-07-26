@@ -1,6 +1,6 @@
 const SG_KEY = process.env.SENDGRID_API_KEY
 
-const client = require("../@sendgrid/mail");
+const client = require("@sendgrid/mail");
 
 exports.handler = function(event, context, callback) {
   client.setApiKey(process.env.SENDGRID_API_KEY);
