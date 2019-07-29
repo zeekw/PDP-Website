@@ -83,31 +83,31 @@ class Index extends React.Component {
         Events.push(FormattedEvent);
       }
     }
-    this.markOldEvents(UnmarkedOldEvent_ids);
+    // this.markOldEvents(UnmarkedOldEvent_ids);
     return Events;
   }
 
-  markOldEvents(_ids){
-    console.log(_ids)
-    for(var i=0; i<_ids.length; i++){
-      var mutations = JSON.stringify({ "mutations": [ { "patch": { "id": _ids[0], "set": { "old": true } } } ] });
-      this.MutateSanity(mutations)
-    }
-  }
-
-  MutateSanity(mutations){
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-    xhr.addEventListener("readystatechange", function () {
-      if (this.readyState === 4) {
-        console.log(this.responseText);
-      }
-    });
-    xhr.open("POST", "https://ocpl5ulk.api.sanity.io/v1/data/mutate/pdp-data");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", "Bearer " + process.env.SANITY_TOKEN);
-    xhr.send(mutations);
-  }
+  // markOldEvents(_ids){
+  //   console.log(_ids)
+  //   for(var i=0; i<_ids.length; i++){
+  //     var mutations = JSON.stringify({ "mutations": [ { "patch": { "id": _ids[0], "set": { "old": true } } } ] });
+  //     this.MutateSanity(mutations)
+  //   }
+  // }
+  //
+  // MutateSanity(mutations){
+  //   var xhr = new XMLHttpRequest();
+  //   xhr.withCredentials = true;
+  //   xhr.addEventListener("readystatechange", function () {
+  //     if (this.readyState === 4) {
+  //       console.log(this.responseText);
+  //     }
+  //   });
+  //   xhr.open("POST", "https://ocpl5ulk.api.sanity.io/v1/data/mutate/pdp-data");
+  //   xhr.setRequestHeader("Content-Type", "application/json");
+  //   xhr.setRequestHeader("Authorization", "Bearer " + process.env.SANITY_TOKEN);
+  //   xhr.send(mutations);
+  // }
 
   render() {
 
