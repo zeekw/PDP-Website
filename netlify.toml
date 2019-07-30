@@ -3,6 +3,3 @@
   command = "npm run build:lambda"
   functions = "lambda" #  netlify-lambda reads this
   publish = "public"
-
-[build.environment]
-  SANITY_TOKEN="skDiISoqRo6tRQPqMeE5gn4yxoUSxJQxYCLBFSTioIY3j1h1IMUDIKE3OafKaeh4PxQtZQZRcnFPTIGAqwIvPPfaN5SNQSUKMvxPjo5g0EJyP4n2Xjv2eyvNHTkZYTEDBaKE5WJJYISweGBElGjmYwZdoaz8XzxLQud6r7abnRxnrg9qB8Ek"
