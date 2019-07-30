@@ -56,10 +56,10 @@ class Contributors extends React.Component {
     var FormattedPastContributors = this.FormatContributors(this.props.data.allSanityPastcontributor.edges)
     var FormattedDonors = this.FormatDonors(this.props.data.allSanityDonor.edges)
     var CurrentContributors = FormattedCurrentContributors.map((contributor) =>
-      <li>{contributor.name}</li>
+      <a href={(typeof contributor.url != "undefined") ? contributor.url : null}><li>{contributor.name}</li></a>
     )
     var PastContributors = FormattedPastContributors.map((contributor) =>
-      <li>{contributor.name}</li>
+      <a href={(typeof contributor.url != "undefined") ? contributor.url : null}><li>{contributor.name}</li></a>
     )
     var isLast = function(object, array){
       if(object == array[array.length - 1]){
@@ -109,6 +109,7 @@ export const query = graphql`{
       node {
         _id
         name
+        url
         order
       }
     }
@@ -118,6 +119,7 @@ export const query = graphql`{
       node {
         _id
         name
+        url
         order
       }
     }

@@ -126,7 +126,9 @@ class Event extends React.Component {
         <Header CurrentPage="Project"/>
         <div id="project-body">
           <div id="hero">
-            <img src={this.ImageRefToUrl(this.state.project.image.asset._ref, [1500, 750], this.state.project.hotspot)}/>
+            <div id="ImageContainer">
+              <img src={this.ImageRefToUrl(this.state.project.image.asset._ref, [1500, 750], this.state.project.hotspot)}/>
+            </div>
             <div id="ProjectTitle">
               <h1>{this.state.project.title}</h1>
               <div id="Stripe"></div>

@@ -112,9 +112,9 @@ class BlogPost extends React.Component {
         <title>{this.state.post.title}</title>
         <Header CurrentPage="BlogPost"/>
         <div id="PostContainer">
-          <VisibilitySensor>
+          <div id="ImageContainer">
             <Img id="PostImage" src={(this.state.post.heroImage != null) ? this.ImageRefToUrl(this.state.post.heroImage.asset._ref, [800,400], this.state.post.heroImage.hotspot) : null}/>
-          </VisibilitySensor>
+          </div>
           <div id="PostText">
             <h3>{this.state.post.title}</h3>
             <h5>{this.state.post.author}</h5>

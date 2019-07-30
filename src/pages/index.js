@@ -87,28 +87,6 @@ class Index extends React.Component {
     return Events;
   }
 
-  // markOldEvents(_ids){
-  //   console.log(_ids)
-  //   for(var i=0; i<_ids.length; i++){
-  //     var mutations = JSON.stringify({ "mutations": [ { "patch": { "id": _ids[0], "set": { "old": true } } } ] });
-  //     this.MutateSanity(mutations)
-  //   }
-  // }
-  //
-  // MutateSanity(mutations){
-  //   var xhr = new XMLHttpRequest();
-  //   xhr.withCredentials = true;
-  //   xhr.addEventListener("readystatechange", function () {
-  //     if (this.readyState === 4) {
-  //       console.log(this.responseText);
-  //     }
-  //   });
-  //   xhr.open("POST", "https://ocpl5ulk.api.sanity.io/v1/data/mutate/pdp-data");
-  //   xhr.setRequestHeader("Content-Type", "application/json");
-  //   xhr.setRequestHeader("Authorization", "Bearer " + process.env.SANITY_TOKEN);
-  //   xhr.send(mutations);
-  // }
-
   render() {
 
     var RawUpcomingData = this.props.data.allSanityEvent.edges
@@ -123,7 +101,7 @@ class Index extends React.Component {
         <Header CurrentPage="Home"/>
         <HomeCarousel data={CarouselData}/>
         <div id="Upcoming">
-          <h1 id="UpcomingHeader">Upcoming:</h1>
+          {(this.props.data.allSanityEvent.edges.length != 0) ? <h1 id="UpcomingHeader">Upcoming:</h1> : null}
           <UpcomingList data={UpcomingData} limit={3}/>
         </div>
         <Footer/>
