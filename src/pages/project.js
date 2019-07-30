@@ -68,6 +68,7 @@ class Event extends React.Component {
   }
 
   ImageRefToUrl(_ref, size, hotspot){
+    console.log(hotspot)
     if(typeof hotspot == 'undefined'){
       var hotspotInfo = ''
     }
@@ -127,7 +128,7 @@ class Event extends React.Component {
         <div id="project-body">
           <div id="hero">
             <div id="ImageContainer">
-              <img src={this.ImageRefToUrl(this.state.project.image.asset._ref, [1500, 750], this.state.project.hotspot)}/>
+              <img src={this.ImageRefToUrl(this.state.project.image.asset._ref, [1500, 750], this.state.project.image.hotspot)}/>
             </div>
             <div id="ProjectTitle">
               <h1>{this.state.project.title}</h1>

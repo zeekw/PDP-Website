@@ -109,9 +109,11 @@ class Event extends React.Component {
         <title>{this.state.event.title}</title>
         <Header CurrentPage="Event"/>
         <div id="EventContainer">
-          <div id="ImageContainer">
-            <Img id="EventImage" src={(this.state.event.image != null) ? this.ImageRefToUrl(this.state.event.image.asset._ref, [800,400], this.state.event.image.hotspot) : null}/>
-          </div>
+          {(this.state.event.image != null) ?
+            <div id="ImageContainer">
+              <Img id="EventImage" src={(this.state.event.image != null) ? this.ImageRefToUrl(this.state.event.image.asset._ref, [800,400], this.state.event.image.hotspot) : null}/>
+            </div> : null
+          }
           <div id="EventText">
             <h3>{this.state.event.title}</h3>
             <h6>{(new Date(this.state.event.date)).toLocaleString([], {year:'2-digit', month: 'numeric', day:'numeric', hour: '2-digit', minute:'2-digit'})}&nbsp; – &nbsp;<span id="EventPrice">{this.FormatPrice(this.state.event.price)}</span></h6>
