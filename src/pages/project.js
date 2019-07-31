@@ -118,6 +118,10 @@ class Event extends React.Component {
           <pre data-language={props.node.language}>
             <code>{props.node.code}</code>
           </pre>
+        ),
+        embed: props => (
+          <div className="embed" dangerouslySetInnerHTML={{__html:
+        props.node.code}}></div>
         )
       }
     }
@@ -136,7 +140,7 @@ class Event extends React.Component {
             </div>
           </div>
           <div id="project-description">
-            <BlockContent blocks={this.state.project.description} serializers={serializers}/>
+            <BlockContent blocks={this.state.project.description} serializers={serializers} projectId="ocpl5ulk" dataset="pdp-data"/>
           </div>
           <div id="Related">
             <h1 id="RelatedEventsHeader">{(formatEventData(this.state.project.relatedEvents).length > 0) ? 'Related Events:' : ''}</h1>

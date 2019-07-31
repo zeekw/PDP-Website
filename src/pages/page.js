@@ -103,7 +103,11 @@ class AdditionalPage extends React.Component {
             <code>{props.node.code}</code>
           </pre>
         ),
-        file: props => (FileRefToElement(props))
+        file: props => (FileRefToElement(props)),
+        embed: props => (
+          <div className="embed" dangerouslySetInnerHTML={{__html:
+        props.node.code}}></div>
+        )
       }
     }
     return (

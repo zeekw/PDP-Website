@@ -59,8 +59,8 @@ class UpcomingList extends React.Component {
                 <span className="UpcomingListItemInfoDivider" style={{opacity: (itemData.price == 'FREE') ? '0' : '1'}}> | </span>
                 <span className="UpcomingListItemPrice" style={{display: (itemData.price == 'FREE') ? 'none' : 'inline'}}>{'$' + itemData.price}</span>
               </Textfit>
-              <Truncate lines={5} ellipsis={"..."} className="UpcomingListItemDescription">
-                <BlockContent blocks={itemData._rawDescription} serializers={serializers}></BlockContent>
+              <Truncate lines={3} ellipsis={"..."} className="UpcomingListItemDescription">
+                <BlockContent blocks={itemData._rawDescription} serializers={serializers} projectId="ocpl5ulk" dataset="pdp-data"></BlockContent>
               </Truncate>
             </div>
           </div>

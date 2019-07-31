@@ -104,6 +104,10 @@ class BlogPost extends React.Component {
           <pre data-language={props.node.language}>
             <code>{props.node.code}</code>
           </pre>
+        ),
+        embed: props => (
+          <div className="embed" dangerouslySetInnerHTML={{__html:
+        props.node.code}}></div>
         )
       }
     }

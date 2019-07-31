@@ -78,7 +78,7 @@ class Blog extends React.Component {
   };
 
   getNext(){
-    const query = '*[_type == "blogpost"] | { _createdAt, title, author, _rawBody, heroImage, _id } | order(_createdAt desc) | [$nextIndex...$nextPlusFive]'
+    const query = '*[_type == "blogpost"] | order(_createdAt desc) | [$nextIndex...$nextPlusFive]'
     const params = {nextIndex: this.state.numFetched, nextPlusFive: this.state.numFetched + 5}
 
     client.fetch(query, params).then(posts => {
@@ -139,6 +139,10 @@ class Blog extends React.Component {
           <pre data-language={props.node.language}>
             <code>{props.node.code}</code>
           </pre>
+        ),
+        embed: props => (
+          <div className="embed" dangerouslySetInnerHTML={{__html:
+        props.node.code}}></div>
         )
       }
     }
@@ -151,7 +155,7 @@ class Blog extends React.Component {
           <h3>{itemData.title}</h3>
           <h5>{itemData.author}</h5>
           <h6>{(new Date(itemData._createdAt)).toLocaleString([], {year:'2-digit', month: 'numeric', day:'numeric', hour: '2-digit', minute:'2-digit'})}</h6>
-          <BlockContent className="PostBody" blocks={itemData._rawBody} serializers={serializers} projectId="ocpl5ulk" dataset="pdp-data"/>
+          <BlockContent className="PostBody" blocks={(typeof itemData.body == "undefined") ? itemData._rawBody : itemData.body} serializers={serializers} projectId="ocpl5ulk" dataset="pdp-data"/>
         </div>
       </div>
     )
@@ -184,7 +188,6 @@ export const query = graphql`{
     edges {
       node {
         _createdAt
-        _rawBody
         author
         title
         _id
@@ -194,6 +197,7 @@ export const query = graphql`{
             _id
           }
         }
+        _rawBody
       }
     }
   }
