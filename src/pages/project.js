@@ -144,9 +144,9 @@ class Event extends React.Component {
           </div>
           <div id="Related">
             <h1 id="RelatedEventsHeader">{(formatEventData(this.state.project.relatedEvents).length > 0) ? 'Related Events:' : ''}</h1>
-            <UpcomingList data={formatEventData(this.state.project.relatedEvents)} limit={5}/>
+            <UpcomingList data={formatEventData(this.state.project.relatedEvents)} limit={3}/>
             <h1 id="RelatedPostsHeader">{(formatEventData(this.state.project.relatedPosts).length > 0) ? 'Related Posts:' : ''}</h1>
-            <UpcomingList data={formatPostData(this.state.project.relatedPosts)} limit={5} overridePath="blogpost"/>
+            <UpcomingList data={formatPostData(this.state.project.relatedPosts)} limit={3} overridePath="blogpost"/>
           </div>
         </div>
         <Footer/>

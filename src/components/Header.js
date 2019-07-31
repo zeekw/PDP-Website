@@ -46,6 +46,7 @@ class Header extends React.Component {
             <Dropdown.Item><Link to="/blog"><div className="MobileNavigatorInnerItem">Blog</div></Link></Dropdown.Item>
             <Dropdown.Item><Link to="/contributors"><div className="MobileNavigatorInnerItem">Contributors</div></Link></Dropdown.Item>
             <Dropdown.Item><Link to="/about"><div className="MobileNavigatorInnerItem">About</div></Link></Dropdown.Item>
+            <Dropdown.Item><Link to="/contact"><div className="MobileNavigatorInnerItem">Contact</div></Link></Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>
