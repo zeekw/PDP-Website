@@ -56,8 +56,8 @@ class UpcomingList extends React.Component {
               <h2 className="UpcomingListItemName-Mobile">{itemData.title}</h2>
               <Textfit max={14} mode="single" className="UpcomingListItemInfo">
                 <span className="UpcomingListItemDate">{(new Date(itemData.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})}</span>&nbsp;
-                <span className="UpcomingListItemInfoDivider" style={{opacity: (itemData.price == 'FREE') ? '0' : '1'}}> | </span>
-                <span className="UpcomingListItemPrice" style={{display: (itemData.price == 'FREE') ? 'none' : 'inline'}}>{'$' + itemData.price}</span>
+                <span className="UpcomingListItemInfoDivider" style={{opacity: (itemData.price == 'FREE' || itemData.price == '0') ? '0' : '1'}}> | </span>
+                <span className="UpcomingListItemPrice" style={{display: (itemData.price == 'FREE' || itemData.price == '0') ? 'none' : 'inline'}}>{'$' + itemData.price}</span>
               </Textfit>
               <Truncate lines={3} ellipsis={"..."} className="UpcomingListItemDescription">
                 <BlockContent blocks={itemData._rawDescription} serializers={serializers} projectId="ocpl5ulk" dataset="pdp-data"></BlockContent>
