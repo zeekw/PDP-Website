@@ -13,7 +13,7 @@ class Footer extends React.Component {
           <h6>{'\u00A9 ' + (new Date()).getFullYear() + ' Philadelphia Dance Projects'}</h6>
           <div id="ButtonContainer">
             <DonateButton/>
-            <div id="ContactButton">CONTACT</div>
+            <Link to="/contact"><div id="ContactButton">CONTACT</div></Link>
           </div>
         </div>
       </div>
