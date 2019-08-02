@@ -175,7 +175,7 @@ class Blog extends React.Component {
         <div id="Sidebar" className={this.state.sidebarClasses} open={this.state.sidebarOpen}>
           <ul id="ArchiveList"><h1>Archive</h1><h2 onClick={() => this.onSetSidebarOpen(false)}>x</h2><br/><br/><br/>{ArchiveItems}</ul>
         </div>
-        <button id="SidebarOpener" onClick={() => this.onSetSidebarOpen(true)}>Archive</button>
+        <button id="SidebarOpener" onClick={() => this.onSetSidebarOpen(true)}><div>Archive</div></button>
         <Footer/>
       </div>
     )
