@@ -8,10 +8,9 @@ class DonateButton extends React.Component {
     return (
       <div id="DonateButton">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-          <input type="hidden" name="cmd" value="_donations" />
-          <input type="hidden" name="business" value="isaacrwasserman@gmail.com" />
-          <input type="hidden" name="currency_code" value="USD" />
-          <input id="DonateButtonImage" type="submit" value="DONATE" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" />
+          <input type="hidden" name="cmd" value="_s-xclick" />
+          <input type="hidden" name="hosted_button_id" value="4MR4GXLTFHUMU" />
+          <input id="DonateButtonImage" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
           <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
         </form>
       </div>
@@ -20,3 +19,9 @@ class DonateButton extends React.Component {
 }
 
 export default DonateButton
+
+
+
+
+<input type="hidden" name="hosted_button_id" value="4MR4GXLTFHUMU" />
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />

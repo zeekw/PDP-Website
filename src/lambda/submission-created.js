@@ -8,7 +8,7 @@ exports.handler = function(event, context, callback) {
   let data = JSON.parse(event.body).payload.data;
 
   const msg = {
-    to: 'isaacrwasserman@gmail.com',
+    to: 'info@philadanceprojects.org',
     from: data.email,
     subject: 'New message from ' + data.name,
     text: data.message,
