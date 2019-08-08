@@ -19,9 +19,3 @@ class DonateButton extends React.Component {
 }
 
 export default DonateButton
-
-
-
-
-<input type="hidden" name="hosted_button_id" value="4MR4GXLTFHUMU" />
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
