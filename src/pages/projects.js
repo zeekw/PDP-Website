@@ -27,8 +27,32 @@ class Projects extends React.Component {
     }
   }
 
+  SortProjects(raw){
+    var sorted = []
+    var prioritized = []
+    var nonPrioritized = []
+    for(var i=0; i<raw.length; i++){
+      if(raw[i].node.order > 0){
+        prioritized.push(raw[i])
+      }
+      else {
+        nonPrioritized.push(raw[i])
+      }
+    }
+    nonPrioritized.sort(function(a, b) {
+      return Date.parse(b.node._updatedAt) - Date.parse(a.node._updatedAt)
+    })
+    sorted = nonPrioritized
+    for(var i=0; i<prioritized.length; i++){
+      sorted.splice((prioritized[i].node.order - 1), 0, prioritized[i])
+    }
+    return sorted
+  }
+
   render() {
-    var Projects = this.props.data.allSanityProject.edges.map((itemData) =>
+    var SortedProjects = this.SortProjects(this.props.data.allSanityProject.edges)
+    console.log(SortedProjects)
+    var Projects = SortedProjects.map((itemData) =>
       <Link to={'/project?' + itemData.node.slug.current}>
         <li>
           <div className="Project">
@@ -53,33 +77,6 @@ class Projects extends React.Component {
         <div id="Projects">
           <ul>
             {Projects}
-            {/*<li>
-              <div className="Project">
-                <img src={Wolf3x1}/>
-                <div className="ProjectTitle">
-                  <h1>PDP Presents</h1>
-                  <div className="Stripe"></div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className="Project">
-                <img src={Leah3x1}/>
-                <div className="ProjectTitle">
-                  <h1>Motion Pictures</h1>
-                  <div className="Stripe"></div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className="Project">
-                <img src={Gabi3x1}/>
-                <div className="ProjectTitle">
-                  <h1>DanceTAG</h1>
-                  <div className="Stripe"></div>
-                </div>
-              </div>
-            </li>*/}
           </ul>
         </div>
         <Footer/>
@@ -94,6 +91,8 @@ export const query = graphql`{
       node {
         title
         _id
+        _updatedAt
+        order
         slug {
           current
         }

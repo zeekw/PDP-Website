@@ -20,7 +20,7 @@ const client = sanityClient({
 const BlockContent = require('@sanity/block-content-to-react')
 const UrlBuilder = imageUrlBuilder(client)
 
-class BlogPost extends React.Component {
+class Announcement extends React.Component {
 
   constructor(props){
     super()
@@ -52,7 +52,7 @@ class BlogPost extends React.Component {
   }
 
   fetchPost = (slug) => {
-    var url = 'https://ocpl5ulk.api.sanity.io/v1/data/query/pdp-data?query=*%5B_type%20%3D%3D%20%22blogpost%22%20%26%26%20slug.current%20%3D%3D%20%22' + slug + '%22%5D'
+    var url = 'https://ocpl5ulk.api.sanity.io/v1/data/query/pdp-data?query=*%5B_type%20%3D%3D%20%22pressclip%22%20%26%26%20slug.current%20%3D%3D%20%22' + slug + '%22%5D'
     this.setState({ loading: true })
     axios.get(url).then(post => {
       if(post.data.result.length >= 1){
@@ -114,7 +114,7 @@ class BlogPost extends React.Component {
     return (
       <div id="body" style={{opacity: this.state.opacity}}>
         <title>{this.state.post.title}</title>
-        <Header CurrentPage="BlogPost"/>
+        <Header CurrentPage="PressClip"/>
         <div id="PostContainer">
           {(this.state.post.heroImage != null) ?
             <div id="ImageContainer">
@@ -122,8 +122,8 @@ class BlogPost extends React.Component {
             </div> : null }
           <div id="PostText">
             <h3>{this.state.post.title}</h3>
-            <h5>{this.state.post.author}</h5>
-            <h6>{(new Date(this.state.post._createdAt)).toLocaleString([], {year:'2-digit', month: 'numeric', day:'numeric', hour: '2-digit', minute:'2-digit'})}</h6>
+            <h5>{this.state.post.author} for {this.state.post.organization}</h5>
+            <h6>{(new Date(this.state.post._createdAt)).toLocaleString([], {year:'2-digit', month: 'numeric', day:'numeric'})}</h6>
             <BlockContent id="PostBody" blocks={this.state.post.body} serializers={serializers} projectId="ocpl5ulk" dataset="pdp-data" />
           </div>
         </div>
@@ -133,4 +133,4 @@ class BlogPost extends React.Component {
   }
 }
 
-export default BlogPost
+export default Announcement

@@ -52,6 +52,7 @@ class About extends React.Component {
           <p>
             The mission of Philadelphia Dance Projects is to support contemporary dance through Projects that encourage artists and audiences to more fully participate and engage in the experience and pursuit of dance as an evolving form.
           </p>
+          <Link to="/page?history"><h5>Read About Our History</h5></Link>
         </div>
         <div id="BoardMembers">
           <h3>Board of Directors</h3>

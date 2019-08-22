@@ -20,7 +20,7 @@ const client = sanityClient({
 })
 const UrlBuilder = imageUrlBuilder(client)
 
-class Blog extends React.Component {
+class Press extends React.Component {
 
   state = {
     numFetched: 5,
@@ -38,7 +38,7 @@ class Blog extends React.Component {
   }
 
   componentDidMount(){
-    var edges = this.props.data.allSanityBlogpost.edges
+    var edges = this.props.data.allSanityPressclip.edges
     var posts = []
     for(var i=0; i<edges.length; i++){
       posts.push(edges[i].node)
@@ -78,7 +78,7 @@ class Blog extends React.Component {
   };
 
   getNext(){
-    const query = '*[_type == "blogpost"] | order(_createdAt desc) | [$nextIndex...$nextPlusFive]'
+    const query = '*[_type == "pressclip"] | order(_createdAt desc) | [$nextIndex...$nextPlusFive]'
     const params = {nextIndex: this.state.numFetched, nextPlusFive: this.state.numFetched + 5}
 
     client.fetch(query, params).then(posts => {
@@ -153,21 +153,21 @@ class Blog extends React.Component {
         </VisibilitySensor>
         <div className="PostText">
           <h3>{itemData.title}</h3>
-          <h5>{itemData.author}</h5>
-          <h6>{(new Date(itemData._createdAt)).toLocaleString([], {year:'2-digit', month: 'numeric', day:'numeric', hour: '2-digit', minute:'2-digit'})}</h6>
+          <h5>{itemData.author} for {itemData.organization}</h5>
+          <h6>{(new Date(itemData.date)).toLocaleString([], {year:'2-digit', month: 'numeric', day:'numeric'})}</h6>
           <BlockContent className="PostBody" blocks={(typeof itemData.body == "undefined") ? itemData._rawBody : itemData.body} serializers={serializers} projectId="ocpl5ulk" dataset="pdp-data"/>
         </div>
       </div>
     )
     var ArchiveItems = this.props.data.archive.edges.map((itemData) =>
       <li className="ArchiveItem" key={itemData.node._id}>
-        <Link to={'/blogpost?' + itemData.node.slug.current}>{itemData.node.title}</Link>
+        <Link to={'/pressclip?' + itemData.node.slug.current}>{itemData.node.title}</Link>
       </li>
     )
     return (
       <div id="body">
-        <title>PDP - Blog</title>
-        <Header CurrentPage="Blog"/>
+        <title>PDP - Press</title>
+        <Header CurrentPage="Press"/>
         <div id="Feed">
           {Items}
         </div>
@@ -184,11 +184,13 @@ class Blog extends React.Component {
 
 
 export const query = graphql`{
-  allSanityBlogpost(sort: {fields: _createdAt, order: DESC}, limit: 5) {
+  allSanityPressclip(sort: {fields: date, order: DESC}, limit: 5) {
     edges {
       node {
-        _createdAt
+        date
         author
+        organization
+        _createdAt
         title
         _id
         heroImage {
@@ -201,7 +203,7 @@ export const query = graphql`{
       }
     }
   }
-  archive: allSanityBlogpost(sort: {fields: _createdAt, order: DESC}) {
+  archive: allSanityPressclip(sort: {fields: date, order: DESC}) {
     edges {
       node {
         _createdAt
@@ -215,4 +217,4 @@ export const query = graphql`{
   }
 }`
 
-export default Blog
+export default Press

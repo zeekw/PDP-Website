@@ -28,10 +28,11 @@ class Header extends React.Component {
         <ul id="Navigator">
           <Link to="/"><li style={NavStyle("Home")}>Home</li></Link>
           <Link to="/projects"><li style={NavStyle("Projects")}>Projects</li></Link>
-          <Link to="/calendar"><li style={NavStyle("Calendar")}>Calendar</li></Link>
-          <Link to="/blog"><li style={NavStyle("Blog")}>Blog</li></Link>
+          <Link to="/press"><li style={NavStyle("Press")}>Press</li></Link>
           <Link to="/contributors"><li style={NavStyle("Contributors")}>Contributors</li></Link>
           <Link to="/about"><li style={NavStyle("About")}>About</li></Link>
+          <Link to="/calendar"><li style={NavStyle("Calendar")}>Calendar</li></Link>
+          <Link to="/announcements"><li style={NavStyle("Announcements")}>Announcements</li></Link>
           <Link to="/contact"><li style={NavStyle("Contact")}>Contact</li></Link>
         </ul>
         <Dropdown id="MobileNavigator">

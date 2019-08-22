@@ -21,6 +21,11 @@ class HomeCarousel extends React.Component {
   render() {
     const props = this.props
     const data = props.data
+    for(var i=0; i<data.length; i++){
+      if(data[i].image == null){
+        data[i].image = data[i].heroImage
+      }
+    }
     var Items = data.map((itemData) =>
       <Carousel.Item key={itemData.id}>
         <Link to={'/' + itemData._type + '?' + itemData.slug.current}>

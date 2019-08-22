@@ -120,7 +120,7 @@ class AdditionalPage extends React.Component {
               <Img id="PostImage" src={(this.state.page.heroImage != null) ? this.ImageRefToUrl(this.state.page.heroImage.asset._ref, [800,400], this.state.page.heroImage.hotspot) : null}/>
             </div> : null }
           <div id="PostText">
-            <h3>{this.state.page.title}</h3>
+            <h3 style={{textAlign: 'center'}}>{this.state.page.title}</h3>
             <BlockContent id="PostBody" blocks={this.state.page.body} serializers={serializers} projectId="ocpl5ulk" dataset="pdp-data" />
           </div>
         </div>

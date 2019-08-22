@@ -12,53 +12,29 @@ import Footer from "../components/Footer.js"
 
 class Index extends React.Component {
 
-  CreateCarouselData(RawEvents, RawPosts){
-    var Events = this.FormatUpcomingData(RawEvents)
-    var Posts = []
-    for(var i=0; i<RawPosts.length; i++){
-      var node = RawPosts[i].node
-      var FormattedPost = JSON.parse(JSON.stringify(node))
-      FormattedPost["ItemType"] = "post"
-      FormattedPost["image"] = FormattedPost["heroImage"]
-      Posts.push(FormattedPost)
+  CreateCarouselData(RawEvents, RawAnnouncements, RawPressClips){
+    var allItems = []
+    for(var i=0; i < RawEvents.length; i++){
+      var item = { data: RawEvents[i].node, deltaTime: Math.abs(Date.parse(RawEvents[i].node.date) - Date.now()) }
+      allItems.push(item)
     }
-    var EventsWithinOneWeek = []
-    var EventsWithinOneMonth = []
-    var EventsWithinThreeMonths = []
-    var EventsFarInFuture = []
-    var now = (new Date()).getTime()
-    var oneWeek = 604800000
-    var oneMonth = 2592000000
-    var threeMonths = 7776000000
-    for(var i=0; i<Events.length; i++){
-      if(Events[i].image != null){
-        var then = Date.parse(Events[i].date)
-        if(then - now <= oneWeek){
-          EventsWithinOneWeek.push(Events[i])
-        } else if(then - now <= oneMonth) {
-          EventsWithinOneMonth.push(Events[i])
-        } else if(then - now <= threeMonths){
-          EventsWithinThreeMonths.push(Events[i])
-        } else {
-          EventsFarInFuture.push(Events[i])
-        }
-      }
+    for(var i=0; i < RawAnnouncements.length; i++){
+      var item = { data: RawAnnouncements[i].node, deltaTime: Math.abs(Date.parse(RawAnnouncements[i].node._createdAt) - Date.now()) }
+      allItems.push(item)
     }
-    var PostsNewerThanOneWeek = []
-    var PostsNewerThanOneMonth = []
-    var OlderPosts = []
-    for(var i=0; i<Posts.length; i++){
-      var then = Date.parse(Posts[i]._createdAt)
-      if(now - then <= oneWeek){
-        PostsNewerThanOneWeek.push(Posts[i])
-      } else if(now - then <= oneMonth){
-        PostsNewerThanOneMonth.push(Posts[i])
-      } else {
-        OlderPosts.push(Posts[i])
-      }
+    for(var i=0; i < RawPressClips.length; i++){
+      var item = { data: RawPressClips[i].node, deltaTime: Math.abs(Date.parse(RawPressClips[i].node.date) - Date.now()) }
+      allItems.push(item)
     }
-    var Data = EventsWithinOneWeek.concat(PostsNewerThanOneWeek, EventsWithinOneMonth, PostsNewerThanOneMonth, EventsWithinThreeMonths, OlderPosts, EventsFarInFuture)
-    return Data
+    allItems.sort(function(a, b) {
+      return a.deltaTime - b.deltaTime;
+    })
+    var sortedItems = []
+    for(var i=0; i<allItems.length; i++){
+      sortedItems.push(allItems[i].data)
+    }
+    console.log(sortedItems)
+    return sortedItems
   }
 
   FormatUpcomingData(raw) {
@@ -87,13 +63,30 @@ class Index extends React.Component {
     return Events;
   }
 
+  FormatAnnouncementData(raw) {
+    var Events = []
+    var UnmarkedOldEvent_ids = []
+    var niter = raw.length
+    for(var i=0; i<niter; i++){
+      var node = raw[i].node
+      var FormattedEvent = JSON.parse(JSON.stringify(node))
+      FormattedEvent.price = "FREE"
+      FormattedEvent.date = node._createdAt
+      FormattedEvent._rawDescription = node._rawBody
+      FormattedEvent["ItemType"] = "announcement"
+      Events.push(FormattedEvent);
+    }
+    return Events;
+  }
+
   render() {
 
     var RawUpcomingData = this.props.data.allSanityEvent.edges
     var UpcomingData = this.FormatUpcomingData(RawUpcomingData)
 
-    var RawPosts = this.props.data.allSanityBlogpost.edges
-    var CarouselData = this.CreateCarouselData(RawUpcomingData, RawPosts)
+    var RawAnnouncements = this.props.data.allSanityAnnouncement.edges
+    var RawPressClips = this.props.data.allSanityPressclip.edges
+    var CarouselData = this.CreateCarouselData(RawUpcomingData, RawAnnouncements, RawPressClips)
 
     return (
       <div id="body">
@@ -104,6 +97,10 @@ class Index extends React.Component {
           {(this.props.data.allSanityEvent.edges.length != 0) ? <h1 id="UpcomingHeader">Upcoming:</h1> : null}
           <UpcomingList data={UpcomingData} limit={3}/>
         </div>
+        <div id="Upcoming">
+          {(this.props.data.allSanityAnnouncement.edges.length != 0) ? <h1 id="UpcomingHeader">Announcements:</h1> : null}
+          <UpcomingList data={this.FormatAnnouncementData(RawAnnouncements)} limit={3}/>
+        </div>
         <Footer/>
       </div>
     )
@@ -112,6 +109,30 @@ class Index extends React.Component {
 
 export const query = graphql`
   {
+
+      allSanityPressclip(sort: {fields: date, order: DESC}, limit: 6) {
+        edges {
+          node {
+            date
+            author
+            organization
+            _createdAt
+            title
+            _id
+            _type
+            slug {
+              current
+            }
+            heroImage {
+              asset {
+                url
+                _id
+              }
+            }
+            _rawBody
+          }
+        }
+      }
     allSanityEvent(sort: {fields: date}, limit: 9, filter: {old: {ne: true}}) {
       edges {
         node {
@@ -152,11 +173,13 @@ export const query = graphql`
       }
     }
 
-    allSanityBlogpost(sort: {fields: _createdAt, order: DESC}, limit: 6, filter: {heroImage: {asset: {url: {ne: null}}}}) {
+    allSanityAnnouncement(sort: {fields: _createdAt, order: DESC}, limit: 6, filter: {heroImage: {asset: {url: {ne: null}}}}) {
       edges {
         node {
           _id
           _type
+          _createdAt
+          _rawBody
           title
           slug {
             current
@@ -173,7 +196,6 @@ export const query = graphql`
       }
     }
   }
-
 `
 
 export default Index
