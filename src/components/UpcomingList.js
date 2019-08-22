@@ -7,6 +7,7 @@ import Truncate from 'react-truncate';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 import { Textfit } from 'react-textfit';
 import innerText from 'react-innertext';
+import Img from 'gatsby-image'
 
 import "../styles/UpcomingListStyle.sass"
 
@@ -31,6 +32,14 @@ class UpcomingList extends React.Component {
     super()
   }
 
+  state = {
+    data: []
+  }
+
+  componentDidMount(){
+    this.setState({data: this.props.data})
+  }
+
   render() {
     const serializers = {
       types: {
@@ -41,31 +50,38 @@ class UpcomingList extends React.Component {
         )
       }
     }
-    var data = this.props.data
+    var data = this.state.data
     var path = 'event'
     if(typeof this.props.overridePath !== 'undefined'){
       path = this.props.overridePath
     }
-    var Items = data.slice(0,this.props.limit).map((itemData) =>
-      <Link to={"/" + path + "?" + itemData.slug.current}>
-        <li className="UpcomingListItem" key={itemData._id}>
-          <div className="UpcomingListItemBody">
-            <img className="UpcomingListItemImage" style={{display: (itemData.image == null) ? 'none' : 'inline'}} src={UrlBuilder.image(itemData.image).size(405,405).fit('crop').quality(70)}/>
-            <div className="UpcomingListItemText">
-              <Textfit max={32} mode="single" className="UpcomingListItemName">{itemData.title}</Textfit>
-              <h2 className="UpcomingListItemName-Mobile">{itemData.title}</h2>
-              <Textfit max={14} mode="single" className="UpcomingListItemInfo">
-                <span className="UpcomingListItemDate">{(new Date(itemData.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})}</span>&nbsp;
-                <span className="UpcomingListItemInfoDivider" style={{opacity: (itemData.price == 'FREE' || itemData.price == '0') ? '0' : '1'}}> | </span>
-                <span className="UpcomingListItemPrice" style={{display: (itemData.price == 'FREE' || itemData.price == '0') ? 'none' : 'inline'}}>{'$' + itemData.price}</span>
-              </Textfit>
-              <Truncate lines={3} ellipsis={"..."} className="UpcomingListItemDescription">
-                <BlockContent blocks={itemData._rawDescription} serializers={serializers} projectId="ocpl5ulk" dataset="pdp-data"></BlockContent>
-              </Truncate>
-            </div>
-          </div>
-        </li>
-      </Link>
+    var image = 'image'
+    if(typeof this.props.overrideImage == 'string'){
+      image = this.props.overrideImage
+    }
+
+    var Items = data.slice(0,this.props.limit).map(function(itemData) {
+      console.log(itemData[image].asset)
+      return <Link to={"/" + path + "?" + itemData.slug.current}>
+              <li className="UpcomingListItem" key={itemData._id}>
+                <div className="UpcomingListItemBody">
+                  <Img className="UpcomingListItemImage" fluid={itemData[image].asset.fluid} />
+                  <div className="UpcomingListItemText">
+                    <Textfit max={32} mode="single" className="UpcomingListItemName">{itemData.title}</Textfit>
+                    <h2 className="UpcomingListItemName-Mobile">{itemData.title}</h2>
+                    <Textfit max={14} mode="single" className="UpcomingListItemInfo">
+                      <span className="UpcomingListItemDate">{(new Date(itemData.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})}</span>&nbsp;
+                      <span className="UpcomingListItemInfoDivider" style={{opacity: (itemData.price == 'FREE' || itemData.price == '0') ? '0' : '1'}}> | </span>
+                      <span className="UpcomingListItemPrice" style={{display: (itemData.price == 'FREE' || itemData.price == '0') ? 'none' : 'inline'}}>{'$' + itemData.price}</span>
+                    </Textfit>
+                    <Truncate lines={3} ellipsis={"..."} className="UpcomingListItemDescription">
+                      <BlockContent blocks={itemData._rawDescription} serializers={serializers} projectId="ocpl5ulk" dataset="pdp-data"></BlockContent>
+                    </Truncate>
+                  </div>
+                </div>
+              </li>
+            </Link>
+    }
     )
     return (
       <ul id="UpcomingList">

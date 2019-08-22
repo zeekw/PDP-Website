@@ -59,7 +59,6 @@ class Index extends React.Component {
         Events.push(FormattedEvent);
       }
     }
-    // this.markOldEvents(UnmarkedOldEvent_ids);
     return Events;
   }
 
@@ -85,9 +84,15 @@ class Index extends React.Component {
     var UpcomingData = this.FormatUpcomingData(RawUpcomingData)
 
     var RawAnnouncements = this.props.data.allSanityAnnouncement.edges
+    var AnnouncementData = this.FormatAnnouncementData(RawAnnouncements)
+
     var RawPressClips = this.props.data.allSanityPressclip.edges
     var CarouselData = this.CreateCarouselData(RawUpcomingData, RawAnnouncements, RawPressClips)
 
+    // console.log("Announcements:")
+    // console.log(AnnouncementData[0].image.asset)
+    // console.log("Events:")
+    // console.log(UpcomingData[0].image.asset)
     return (
       <div id="body">
         <title>Philadelphia Dance Projects</title>
@@ -99,7 +104,7 @@ class Index extends React.Component {
         </div>
         <div id="Upcoming">
           {(this.props.data.allSanityAnnouncement.edges.length != 0) ? <h1 id="UpcomingHeader">Announcements:</h1> : null}
-          <UpcomingList data={this.FormatAnnouncementData(RawAnnouncements)} limit={3}/>
+          <UpcomingList data={AnnouncementData} overridePath="announcement" overrideImage="heroImage" limit={3}/>
         </div>
         <Footer/>
       </div>
@@ -127,6 +132,17 @@ export const query = graphql`
               asset {
                 url
                 _id
+                fluid(maxWidth: 730, maxHeight: 730) {
+                  ...GatsbySanityImageFluid
+                }
+              }
+              hotspot {
+                _key
+                _type
+                height
+                width
+                x
+                y
               }
             }
             _rawBody
@@ -146,6 +162,7 @@ export const query = graphql`
           image {
             asset {
               url
+              _id
               fluid(maxWidth: 9999, maxHeight: 9999) {
                 ...GatsbySanityImageFluid
               }
@@ -187,9 +204,18 @@ export const query = graphql`
           heroImage {
             asset {
               url
-              fluid(maxWidth: 9999, maxHeight: 9999) {
+              _id
+              fluid(maxWidth: 730, maxHeight: 730) {
                 ...GatsbySanityImageFluid
               }
+            }
+            hotspot {
+              _key
+              _type
+              height
+              width
+              x
+              y
             }
           }
         }
