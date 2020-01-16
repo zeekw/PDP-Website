@@ -1,1 +1,0 @@
-{"errors":[{"message":"Cannot query field \"allSanityBlogpost\" on type \"Query\". Did you mean \"allSanityDonor\", \"allSanityProject\", \"allSanityEvent\", \"allSanityFileAsset\", or \"allSanityImageAsset\"?","locations":[{"line":41,"column":3}]}],"pageContext":{"isCreatedByStatefulCreatePages":true}}
