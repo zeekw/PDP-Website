@@ -5,6 +5,7 @@ import Sanity from '../../sanity-client.js'
 import Header from '../../components/Header.js'
 import Footer from '../../components/Footer.js'
 import Document from '../../components/Document.js'
+import Favicon from 'react-favicon'
 
 class Page extends React.Component {
   state = {
@@ -18,6 +19,7 @@ class Page extends React.Component {
     return(
       <div>
         <title>{this.props.data.title}</title>
+        <Favicon url={"../../static/favicon.ico"}/>
         <Header CurrentPage="Page"/>
         <Document data={this.props.data} image={"heroImage"} headline={"title"} body={"body"}/>
         <Footer/>

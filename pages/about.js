@@ -1,6 +1,7 @@
 import React from "react"
 import Link from 'next/link'
 import Sanity from "../sanity-client.js"
+import Favicon from 'react-favicon'
 
 import "../styles/about.sass"
 
@@ -18,6 +19,7 @@ class About extends React.Component {
     return (
       <div id="body">
         <title>PDP - About Us</title>
+        <Favicon url={"../static/favicon.ico"}/>
         <Header CurrentPage="About"/>
         <div id="MissionContainer">
           <div id="MissionStatement">

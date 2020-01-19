@@ -5,6 +5,7 @@ import FullCalendar from '../components/FullCalendar-NoSSR.js'
 import ReactTooltip from 'react-tooltip'
 import Sanity from "../sanity-client.js"
 import "../styles/calendar.sass"
+import Favicon from 'react-favicon'
 
 import Header from "../components/Header.js"
 import Footer from "../components/Footer.js"
@@ -32,6 +33,7 @@ class Calendar extends React.Component {
     return (
       <div id="body">
         <title>PDP - Calendar</title>
+        <Favicon url={"../static/favicon.ico"}/>
         <Header CurrentPage="Calendar"/>
         <div id="CalendarContainer">
           <FullCalendar

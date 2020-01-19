@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Sanity from '../sanity-client.js'
+import Favicon from 'react-favicon'
 
 import Header from '../components/Header.js'
 import Carousel from '../components/Carousel.js'
@@ -39,6 +40,7 @@ class Index extends React.Component {
     return(
       <div>
         <title>PDP</title>
+        <Favicon url={"../static/favicon.ico"} />
         <Header CurrentPage="Home"/>
         <Carousel data={this.props.data}/>
         <div id="AboutContainer">

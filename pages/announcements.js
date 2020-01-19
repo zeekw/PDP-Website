@@ -7,6 +7,7 @@ import autoBind from 'react-autobind';
 import BottomScrollListener from 'react-bottom-scroll-listener';
 import Sidebar from "../components/Sidebar.js";
 import Link from 'next/link'
+import Favicon from 'react-favicon'
 
 import "../styles/sidebar.sass"
 
@@ -51,6 +52,7 @@ class Announcements extends React.Component {
     return(
       <div>
         <title>PDP - Announcements</title>
+        <Favicon url={"../static/favicon.ico"}/>
         <Header CurrentPage="Announcements"/>
         {announcements}
         <Sidebar headline="Archive">{ArchiveItems}</Sidebar>

@@ -8,12 +8,14 @@ import DocumentList from '../../components/DocumentList.js'
 import { SanityImageUrl, findFocalPoint } from "../../helperFunctions.js"
 import "../../styles/project.sass"
 import { BlockContent, serializers } from "../../sanity-tools.js"
+import Favicon from 'react-favicon'
 
 class Project extends React.Component {
   render(){
     return(
       <div>
         <title>{this.props.project.title}</title>
+        <Favicon url={"../../static/favicon.ico"}/>
         <Header CurrentPage="Project"/>
         <div id="project-body">
           <div id="hero">

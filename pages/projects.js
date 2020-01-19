@@ -4,6 +4,7 @@ import Sanity from '../sanity-client.js'
 import Header from '../components/Header.js'
 import Footer from '../components/Footer.js'
 import ProjectList from '../components/ProjectList.js'
+import Favicon from 'react-favicon'
 
 import '../styles/projects.sass'
 
@@ -19,6 +20,7 @@ class Projects extends React.Component {
     return(
       <div>
         <title>PDP - Projects</title>
+        <Favicon url={"../static/favicon.ico"}/>
         <Header CurrentPage="Projects"/>
         <div id="ProjectsDescription">
           <p>

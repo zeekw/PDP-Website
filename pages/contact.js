@@ -2,6 +2,7 @@ import React from "react"
 import Link from 'next/link'
 import autoBind from 'react-autobind'
 import "../styles/contact.sass"
+import Favicon from 'react-favicon'
 
 import Header from "../components/Header.js"
 import Footer from "../components/Footer.js"
@@ -64,6 +65,7 @@ class Contact extends React.Component {
     return (
       <div id="body">
         <title>PDP - Contact Us</title>
+        <Favicon url={"../static/favicon.ico"}/>
         <Header CurrentPage="Contact"/>
         <div id="contact-form">
           <h1>Email Us</h1>

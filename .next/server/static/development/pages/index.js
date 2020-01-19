@@ -3226,15 +3226,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _sanity_client_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sanity-client.js */ "./sanity-client.js");
-/* harmony import */ var _components_Header_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Header.js */ "./components/Header.js");
-/* harmony import */ var _components_Carousel_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Carousel.js */ "./components/Carousel.js");
-/* harmony import */ var _components_DocumentList_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/DocumentList.js */ "./components/DocumentList.js");
-/* harmony import */ var _components_Footer_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Footer.js */ "./components/Footer.js");
-/* harmony import */ var _helperFunctions_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../helperFunctions.js */ "./helperFunctions.js");
-/* harmony import */ var _styles_index_sass__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/index.sass */ "./styles/index.sass");
-/* harmony import */ var _styles_index_sass__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_styles_index_sass__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var react_favicon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-favicon */ "react-favicon");
+/* harmony import */ var react_favicon__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_favicon__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_Header_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Header.js */ "./components/Header.js");
+/* harmony import */ var _components_Carousel_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Carousel.js */ "./components/Carousel.js");
+/* harmony import */ var _components_DocumentList_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/DocumentList.js */ "./components/DocumentList.js");
+/* harmony import */ var _components_Footer_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Footer.js */ "./components/Footer.js");
+/* harmony import */ var _helperFunctions_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../helperFunctions.js */ "./helperFunctions.js");
+/* harmony import */ var _styles_index_sass__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../styles/index.sass */ "./styles/index.sass");
+/* harmony import */ var _styles_index_sass__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_styles_index_sass__WEBPACK_IMPORTED_MODULE_9__);
 var _jsxFileName = "/Users/isaac/Desktop/PDP-Website/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -3251,7 +3254,7 @@ const getData = async function () {
   const query = `*[(_type == "event" && date >= "${currentDate}") || _type == "announcement"]`;
   var data = await _sanity_client_js__WEBPACK_IMPORTED_MODULE_2__["default"].fetch(query, {}); // Sort data by timeDelta value in ascending order
 
-  var sortedData = Object(_helperFunctions_js__WEBPACK_IMPORTED_MODULE_7__["sortByTimeDelta"])(data);
+  var sortedData = Object(_helperFunctions_js__WEBPACK_IMPORTED_MODULE_8__["sortByTimeDelta"])(data);
   return {
     data: sortedData
   };
@@ -3291,77 +3294,84 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     return __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40
+        lineNumber: 41
       },
       __self: this
     }, __jsx("title", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
-      },
-      __self: this
-    }, "PDP"), __jsx(_components_Header_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      CurrentPage: "Home",
-      __source: {
-        fileName: _jsxFileName,
         lineNumber: 42
       },
       __self: this
-    }), __jsx(_components_Carousel_js__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      data: this.props.data,
+    }, "PDP"), __jsx(react_favicon__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      url: "../static/favicon.ico",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 43
+      },
+      __self: this
+    }), __jsx(_components_Header_js__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      CurrentPage: "Home",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 44
+      },
+      __self: this
+    }), __jsx(_components_Carousel_js__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      data: this.props.data,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 45
       },
       __self: this
     }), __jsx("div", {
       id: "AboutContainer",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44
+        lineNumber: 46
       },
       __self: this
     }, __jsx("div", {
       id: "MissionStatement",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 47
       },
       __self: this
     }, __jsx("h3", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46
+        lineNumber: 48
       },
       __self: this
     }, "Our Mission"), __jsx("p", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 47
+        lineNumber: 49
       },
       __self: this
     }, "The mission of Philadelphia Dance Projects is to support contemporary dance through Projects that encourage artists and audiences to more fully participate and engage in the experience and pursuit of dance as an evolving form."))), __jsx("div", {
       id: "Lists",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 52
+        lineNumber: 54
       },
       __self: this
     }, __jsx("div", {
       id: "Upcoming",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 53
+        lineNumber: 55
       },
       __self: this
     }, __jsx("h1", {
       id: "UpcomingHeader",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 54
+        lineNumber: 56
       },
       __self: this
-    }, "Upcoming:"), __jsx(_components_DocumentList_js__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }, "Upcoming:"), __jsx(_components_DocumentList_js__WEBPACK_IMPORTED_MODULE_6__["default"], {
       data: Events,
       headline: "title",
       primaryDetail: "readableDate",
@@ -3371,24 +3381,24 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       body: "Description",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 55
+        lineNumber: 57
       },
       __self: this
     })), __jsx("div", {
       id: "Announcements",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 57
+        lineNumber: 59
       },
       __self: this
     }, __jsx("h1", {
       id: "AnnouncementsHeader",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 58
+        lineNumber: 60
       },
       __self: this
-    }, "Announcements:"), __jsx(_components_DocumentList_js__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }, "Announcements:"), __jsx(_components_DocumentList_js__WEBPACK_IMPORTED_MODULE_6__["default"], {
       data: Announcements,
       headline: "title",
       primaryDetail: "readableDate",
@@ -3398,13 +3408,13 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       body: "body",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 59
+        lineNumber: 61
       },
       __self: this
-    }))), __jsx(_components_Footer_js__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }))), __jsx(_components_Footer_js__WEBPACK_IMPORTED_MODULE_7__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 62
+        lineNumber: 64
       },
       __self: this
     }));
@@ -3738,6 +3748,17 @@ module.exports = require("react-bootstrap/Carousel");
 /***/ (function(module, exports) {
 
 module.exports = require("react-bootstrap/Dropdown");
+
+/***/ }),
+
+/***/ "react-favicon":
+/*!********************************!*\
+  !*** external "react-favicon" ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-favicon");
 
 /***/ }),
 

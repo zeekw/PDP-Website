@@ -5,6 +5,7 @@ import Sanity from '../../sanity-client.js'
 import Header from '../../components/Header.js'
 import Footer from '../../components/Footer.js'
 import Document from '../../components/Document.js'
+import Favicon from 'react-favicon'
 
 class Event extends React.Component {
   state = {
@@ -21,6 +22,7 @@ class Event extends React.Component {
     return(
       <div>
         <title>{this.state.data.title}</title>
+        <Favicon url={"../../static/favicon.ico"}/>
         <Header CurrentPage="Event"/>
         <Document data={this.state.data} image={"image"} headline={"title"} primaryDetail={"readableDate"} secondaryDetail={"readablePrice"} tertiaryDetail={"actionElement"} body={"Description"}/>
         <Footer/>

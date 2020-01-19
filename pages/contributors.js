@@ -1,6 +1,7 @@
 import React from "react"
 import Link from 'next/link'
 import Sanity from '../sanity-client.js'
+import Favicon from 'react-favicon'
 
 import "../styles/contributors.sass"
 
@@ -23,6 +24,7 @@ class Contributors extends React.Component {
     return (
       <div id="body">
         <title>PDP - Contributors</title>
+        <Favicon url={"../static/favicon.ico"}/>
         <Header CurrentPage="Contributors"/>
         <div id="Contributors">
           <h3>Contributors</h3>

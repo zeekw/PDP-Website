@@ -5,6 +5,7 @@ import Sanity from '../../sanity-client.js'
 import Header from '../../components/Header.js'
 import Footer from '../../components/Footer.js'
 import Document from '../../components/Document.js'
+import Favicon from 'react-favicon'
 
 class Announcement extends React.Component {
   state = {

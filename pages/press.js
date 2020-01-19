@@ -7,6 +7,7 @@ import autoBind from 'react-autobind';
 import BottomScrollListener from 'react-bottom-scroll-listener';
 import Sidebar from "../components/Sidebar.js";
 import Link from 'next/link'
+import Favicon from 'react-favicon'
 
 import "../styles/sidebar.sass"
 
@@ -59,6 +60,7 @@ class Press extends React.Component {
     return(
       <div>
         <title>PDP - Press</title>
+        <Favicon url={"../static/favicon.ico"}/>
         <Header CurrentPage="Press"/>
         {clips}
         <Sidebar headline="Archive">{ArchiveItems}</Sidebar>
