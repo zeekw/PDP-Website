@@ -13,7 +13,7 @@ class Project extends React.Component {
   render(){
     return(
       <div>
-        <title>PDP</title>
+        <title>{this.props.project.title}</title>
         <Header CurrentPage="Project"/>
         <div id="project-body">
           <div id="hero">

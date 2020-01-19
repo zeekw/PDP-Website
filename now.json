@@ -1,6 +1,6 @@
 {
   "env": {
-    "SANITY_TOKEN": "@SANITY_TOKEN",
-    "EMAILJS_UID": "@EMAILJS_UID"
-  },
+    "sanity_token": "@sanity_token",
+    "emailjs_uid": "@emailjs_uid"
+  }
 }

@@ -1,0 +1,441 @@
+{
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/contact.sass": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/calendar.sass": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/about.sass": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/sidebar.sass": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/contributors.sass": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/projects.sass": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/project.sass": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/index.sass": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/headerstyle.sass": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/document.sass": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/projectList.sass": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/footerstyle.sass": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/DocumentListStyle.sass": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/carousel.sass": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/filestyle.sass": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--5-1!node_modules/bootstrap/dist/css/bootstrap.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/donatestyle.sass": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "modules": {
+    "byIdentifier": {
+      "css node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/about.sass 0": 0,
+      "css node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/headerstyle.sass 0": 1,
+      "css node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/footerstyle.sass 0": 2,
+      "css node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/donatestyle.sass 0": 3,
+      "css node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/document.sass 0": 4,
+      "css node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/filestyle.sass 0": 5,
+      "css node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/sidebar.sass 0": 6,
+      "css node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!node_modules/@fullcalendar/core/main.css 0": 7,
+      "css node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!node_modules/@fullcalendar/daygrid/main.css 0": 8,
+      "css node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/calendar.sass 0": 9,
+      "css node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/contact.sass 0": 10,
+      "css node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/contributors.sass 0": 11,
+      "css node_modules/css-loader/index.js??ref--5-1!node_modules/bootstrap/dist/css/bootstrap.css 0": 12,
+      "css node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/carousel.sass 0": 13,
+      "css node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/DocumentListStyle.sass 0": 14,
+      "css node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/index.sass 0": 15,
+      "css node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/project.sass 0": 16,
+      "css node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/projectList.sass 0": 17,
+      "css node_modules/css-loader/index.js??ref--7-1!node_modules/sass-loader/lib/loader.js??ref--7-2!styles/projects.sass 0": 18
+    },
+    "usedIds": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6,
+      "7": 7,
+      "8": 8,
+      "9": 9,
+      "10": 10,
+      "11": 11,
+      "12": 12,
+      "13": 13,
+      "14": 14,
+      "15": 15,
+      "16": 16,
+      "17": 17,
+      "18": 18
+    }
+  },
+  "chunks": {
+    "byName": {
+      "commons": 0,
+      "static/runtime/webpack.js": 1,
+      "styles": 2,
+      "static/P0HuNm1pH9lgBhvSY-6Bi/pages/_app.js": 3,
+      "static/P0HuNm1pH9lgBhvSY-6Bi/pages/_error.js": 4,
+      "static/P0HuNm1pH9lgBhvSY-6Bi/pages/about.js": 5,
+      "static/P0HuNm1pH9lgBhvSY-6Bi/pages/announcement/[slug].js": 6,
+      "static/P0HuNm1pH9lgBhvSY-6Bi/pages/announcements.js": 7,
+      "static/P0HuNm1pH9lgBhvSY-6Bi/pages/calendar.js": 8,
+      "static/P0HuNm1pH9lgBhvSY-6Bi/pages/contact.js": 9,
+      "static/P0HuNm1pH9lgBhvSY-6Bi/pages/contributors.js": 10,
+      "static/P0HuNm1pH9lgBhvSY-6Bi/pages/event/[slug].js": 11,
+      "static/P0HuNm1pH9lgBhvSY-6Bi/pages/index.js": 12,
+      "static/P0HuNm1pH9lgBhvSY-6Bi/pages/page/[slug].js": 13,
+      "static/P0HuNm1pH9lgBhvSY-6Bi/pages/press.js": 14,
+      "static/P0HuNm1pH9lgBhvSY-6Bi/pages/pressclip/[slug].js": 15,
+      "static/P0HuNm1pH9lgBhvSY-6Bi/pages/project/[slug].js": 16,
+      "static/P0HuNm1pH9lgBhvSY-6Bi/pages/projects.js": 17,
+      "static/runtime/main.js": 18,
+      "static/hbAyBtzg5GCJKw7aUpTqv/pages/_app.js": 22,
+      "static/hbAyBtzg5GCJKw7aUpTqv/pages/_error.js": 23,
+      "static/hbAyBtzg5GCJKw7aUpTqv/pages/about.js": 24,
+      "static/hbAyBtzg5GCJKw7aUpTqv/pages/announcement/[slug].js": 25,
+      "static/hbAyBtzg5GCJKw7aUpTqv/pages/announcements.js": 26,
+      "static/hbAyBtzg5GCJKw7aUpTqv/pages/calendar.js": 27,
+      "static/hbAyBtzg5GCJKw7aUpTqv/pages/contact.js": 28,
+      "static/hbAyBtzg5GCJKw7aUpTqv/pages/contributors.js": 29,
+      "static/hbAyBtzg5GCJKw7aUpTqv/pages/event/[slug].js": 30,
+      "static/hbAyBtzg5GCJKw7aUpTqv/pages/index.js": 31,
+      "static/hbAyBtzg5GCJKw7aUpTqv/pages/page/[slug].js": 32,
+      "static/hbAyBtzg5GCJKw7aUpTqv/pages/press.js": 33,
+      "static/hbAyBtzg5GCJKw7aUpTqv/pages/pressclip/[slug].js": 34,
+      "static/hbAyBtzg5GCJKw7aUpTqv/pages/project/[slug].js": 35,
+      "static/hbAyBtzg5GCJKw7aUpTqv/pages/projects.js": 36,
+      "framework": 3,
+      "07d63033ff58cac761dde85a766bde892fa1b542": 4,
+      "24d29b75730838b4475e518247a1993fe1f2e330": 5,
+      "120b7ea01da81f83607c733efff87f53b30c730c": 6,
+      "29979773fdcff34eb05f20f0f92cacbdc53ffaee": 7,
+      "98000e605008caaf0529e07969fc70e34df6d966": 8,
+      "a2149f5e944a15a603b12a32e75521e730ccff4d": 9,
+      "56c9b6aa": 11,
+      "static/runtime/polyfills.js": 12,
+      "static/u8klSVJHZ3BV7AkQcQ2T-/pages/_app.js": 13,
+      "static/u8klSVJHZ3BV7AkQcQ2T-/pages/_error.js": 14,
+      "static/u8klSVJHZ3BV7AkQcQ2T-/pages/about.js": 15,
+      "static/u8klSVJHZ3BV7AkQcQ2T-/pages/announcement/[slug].js": 16,
+      "static/u8klSVJHZ3BV7AkQcQ2T-/pages/announcements.js": 17,
+      "24a2fd88": 20,
+      "static/u8klSVJHZ3BV7AkQcQ2T-/pages/calendar.js": 37,
+      "static/u8klSVJHZ3BV7AkQcQ2T-/pages/contact.js": 38,
+      "static/u8klSVJHZ3BV7AkQcQ2T-/pages/contributors.js": 39,
+      "static/u8klSVJHZ3BV7AkQcQ2T-/pages/event/[slug].js": 40,
+      "static/u8klSVJHZ3BV7AkQcQ2T-/pages/index.js": 41,
+      "static/u8klSVJHZ3BV7AkQcQ2T-/pages/page/[slug].js": 42,
+      "static/u8klSVJHZ3BV7AkQcQ2T-/pages/press.js": 43,
+      "static/u8klSVJHZ3BV7AkQcQ2T-/pages/pressclip/[slug].js": 44,
+      "static/u8klSVJHZ3BV7AkQcQ2T-/pages/project/[slug].js": 45,
+      "static/u8klSVJHZ3BV7AkQcQ2T-/pages/projects.js": 46
+    },
+    "bySource": {
+      "0 node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!components/FullCalendar-NoSSR.js @fullcalendar/timegrid": 20,
+      "0 node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!components/FullCalendar-NoSSR.js @fullcalendar/react": 20,
+      "0 node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!components/FullCalendar-NoSSR.js @fullcalendar/daygrid": 20,
+      "1 node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!components/FullCalendar-NoSSR.js @fullcalendar/daygrid": 10,
+      "1 node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!components/FullCalendar-NoSSR.js @fullcalendar/timegrid": 10,
+      "1 node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!components/FullCalendar-NoSSR.js @fullcalendar/react": 47,
+      "2 node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!components/FullCalendar-NoSSR.js @fullcalendar/timegrid": 48
+    },
+    "usedIds": [
+      0,
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      2,
+      20,
+      3,
+      37,
+      38,
+      39,
+      4,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  }
+}

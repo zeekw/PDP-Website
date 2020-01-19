@@ -18,7 +18,7 @@ class Announcement extends React.Component {
   render(){
     return(
       <div>
-        <title>PDP</title>
+        <title>{this.props.data.title}</title>
         <Header CurrentPage="Announcement"/>
         <Document data={this.props.data} image={"heroImage"} headline={"title"} body={"body"} primaryDetail={"readableDate"}/>
         <Footer/>

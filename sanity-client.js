@@ -6,7 +6,7 @@ const sanityClient = require('@sanity/client')
 const client = sanityClient({
   projectId: projectId,
   dataset: dataset,
-  token: process.env.SANITY_TOKEN, // or leave blank to be anonymous user
+  // token: process.env.emailjs_uid, // or leave blank to be anonymous user
   useCdn: true
 })
 

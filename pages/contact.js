@@ -52,7 +52,7 @@ class Contact extends React.Component {
         "message": this.state.message
       }
       console.log(process.env.EMAILJS_UID)
-      emailjs.send("default_service","contact_form", template_params, process.env.EMAILJS_UID).then((response) => {
+      emailjs.send("default_service","contact_form", template_params, process.env.emailjs_uid).then((response) => {
          this.setState({sendStatus: "sent", notification: "Message sent", notificationType: "good"})
       }, (err) => {
          console.log('FAILED...', err)

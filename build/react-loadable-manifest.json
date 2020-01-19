@@ -1,10 +1,56 @@
 {
-  "./dev/noop": [
+  "@fullcalendar/daygrid": [
     {
-      "id": "./node_modules/next/dist/client/dev/noop.js",
-      "name": "./node_modules/next/dist/client/dev/noop.js",
-      "file": "static/chunks/0.js",
-      "publicPath": "static/chunks/0.js"
+      "id": "SZB9",
+      "name": "./node_modules/@fullcalendar/core/main.esm.js",
+      "file": "static/chunks/24a2fd88.b7bf9259a89fc0b33f6e.js",
+      "publicPath": "static/chunks/24a2fd88.b7bf9259a89fc0b33f6e.js"
+    },
+    {
+      "id": "iOEq",
+      "name": "./node_modules/@fullcalendar/daygrid/main.esm.js",
+      "file": "static/chunks/10.a13a9e970ab7e237159f.js",
+      "publicPath": "static/chunks/10.a13a9e970ab7e237159f.js"
+    }
+  ],
+  "@fullcalendar/react": [
+    {
+      "id": "SZB9",
+      "name": "./node_modules/@fullcalendar/core/main.esm.js",
+      "file": "static/chunks/24a2fd88.b7bf9259a89fc0b33f6e.js",
+      "publicPath": "static/chunks/24a2fd88.b7bf9259a89fc0b33f6e.js"
+    },
+    {
+      "id": "3aIR",
+      "name": "./node_modules/@fullcalendar/react/main.esm.js",
+      "file": "static/chunks/47.62f9771a277cb1ea0a6e.js",
+      "publicPath": "static/chunks/47.62f9771a277cb1ea0a6e.js"
+    },
+    {
+      "id": "aUsF",
+      "name": "./node_modules/fast-deep-equal/index.js",
+      "file": "static/chunks/47.62f9771a277cb1ea0a6e.js",
+      "publicPath": "static/chunks/47.62f9771a277cb1ea0a6e.js"
+    }
+  ],
+  "@fullcalendar/timegrid": [
+    {
+      "id": "SZB9",
+      "name": "./node_modules/@fullcalendar/core/main.esm.js",
+      "file": "static/chunks/24a2fd88.b7bf9259a89fc0b33f6e.js",
+      "publicPath": "static/chunks/24a2fd88.b7bf9259a89fc0b33f6e.js"
+    },
+    {
+      "id": "iOEq",
+      "name": "./node_modules/@fullcalendar/daygrid/main.esm.js",
+      "file": "static/chunks/10.a13a9e970ab7e237159f.js",
+      "publicPath": "static/chunks/10.a13a9e970ab7e237159f.js"
+    },
+    {
+      "id": "p8AH",
+      "name": "./node_modules/@fullcalendar/timegrid/main.esm.js",
+      "file": "static/chunks/48.77d557f03c968433d0ea.js",
+      "publicPath": "static/chunks/48.77d557f03c968433d0ea.js"
     }
   ]
 }

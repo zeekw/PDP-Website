@@ -84,7 +84,7 @@ class Document extends React.Component {
             <span id="DetailDivider" style={{display: ((secondaryDetailKey != null || typeof secondaryDetailKey !== 'undefined') && this.props.data[secondaryDetailKey] != '' ? 'inline' : 'none')}}>|</span>
             <span id="SecondaryDetail">{this.props.data[secondaryDetailKey]}</span>
             <span id="DetailDivider" style={{display: ((tertiaryDetailKey != null || typeof tertiaryDetailKey !== 'undefined') && this.props.data[tertiaryDetailKey] != '' ? 'inline' : 'none')}}>|</span>
-            <span id="SecondaryDetail">{this.props.data[tertiaryDetailKey]}</span>
+            <span id="tertiaryDetail">{this.props.data[tertiaryDetailKey]}</span>
           </h6>
           <BlockContent id="DocumentDescription" blocks={this.props.data[bodyKey]} serializers={serializers} projectId="ocpl5ulk" dataset="pdp-data" />
         </div>

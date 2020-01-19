@@ -38,7 +38,7 @@ class Index extends React.Component {
     }
     return(
       <div>
-        <title>PDP - Projects</title>
+        <title>PDP</title>
         <Header CurrentPage="Home"/>
         <Carousel data={this.props.data}/>
         <div id="AboutContainer">

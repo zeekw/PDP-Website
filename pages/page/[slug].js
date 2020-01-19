@@ -17,7 +17,7 @@ class Page extends React.Component {
   render(){
     return(
       <div>
-        <title>PDP</title>
+        <title>{this.props.data.title}</title>
         <Header CurrentPage="Page"/>
         <Document data={this.props.data} image={"heroImage"} headline={"title"} body={"body"}/>
         <Footer/>

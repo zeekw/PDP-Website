@@ -58,7 +58,7 @@ class Press extends React.Component {
     ))
     return(
       <div>
-        <title>PDP</title>
+        <title>PDP - Press</title>
         <Header CurrentPage="Press"/>
         {clips}
         <Sidebar headline="Archive">{ArchiveItems}</Sidebar>

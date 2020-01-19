@@ -1,0 +1,126 @@
+#Header {
+  width: 928px;
+  height: 100px;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 20px; }
+  #Header img {
+    width: 500px;
+    display: block;
+    margin: 0 auto; }
+  #Header #Navigator {
+    list-style: none;
+    padding: 0px;
+    display: block;
+    margin: 15px auto;
+    margin-bottom: 0px; }
+    #Header #Navigator li {
+      font-weight: 600;
+      font-size: 18px;
+      display: inline-block;
+      margin: 0 20px;
+      cursor: pointer;
+      color: black; }
+      #Header #Navigator li:hover {
+        border-bottom-color: grey;
+        border-bottom-width: 2px;
+        border-bottom-style: solid; }
+  #Header #MobileNavigator {
+    display: none;
+    margin-top: 15px; }
+    #Header #MobileNavigator .dropdown-toggle {
+      background-color: white;
+      color: black;
+      border-color: black;
+      border-width: 3px;
+      font-weight: 600;
+      margin: 0 auto;
+      display: block;
+      width: 160px; }
+      #Header #MobileNavigator .dropdown-toggle:focus {
+        box-shadow: none; }
+    #Header #MobileNavigator .dropdown-item {
+      padding: 0px; }
+      #Header #MobileNavigator .dropdown-item .MobileNavigatorInnerItem {
+        height: 100%;
+        width: 100%;
+        padding: 0.25rem 1.5rem;
+        color: black !important; }
+
+@media (max-width: 928px) {
+  #Header {
+    width: 100% !important;
+    padding: 0 25px; } }
+  @media (max-width: 928px) and (min-width: 650px) {
+    #Header {
+      margin-bottom: 40px; } }
+
+@media (max-width: 928px) {
+    #Header img {
+      width: 500px !important;
+      max-width: 100%; }
+    #Header #MobileNavigator {
+      display: block !important; }
+    #Header #Navigator {
+      display: none !important; } }
+
+#Footer {
+  width: 100%;
+  margin-top: 80px;
+  border-top: solid 1px #eee;
+  height: 60px;
+  padding: 10px;
+  text-align: center; }
+  #Footer #FooterBody {
+    display: inline-block; }
+    #Footer #FooterBody h6 {
+      color: #999;
+      display: inline-block;
+      vertical-align: top;
+      margin-bottom: 0px;
+      height: 40px;
+      padding: 12px; }
+    #Footer #FooterBody #ButtonContainer {
+      display: inline-block; }
+      #Footer #FooterBody #ButtonContainer #DonateButton {
+        display: block;
+        float: left; }
+      #Footer #FooterBody #ButtonContainer #ContactButton {
+        display: block;
+        float: left;
+        height: 40px;
+        width: 120px;
+        background-color: #57b9f2;
+        border: solid 1px #499dcc;
+        border-radius: 5px;
+        margin: 0px 5px;
+        overflow: hidden;
+        color: white !important;
+        font-weight: 700;
+        padding: 7px;
+        cursor: pointer;
+        text-decoration: none !important; }
+        #Footer #FooterBody #ButtonContainer #ContactButton:hover {
+          opacity: 0.8; }
+
+@media (max-width: 650px) {
+  #ButtonContainer {
+    margin-bottom: 10px; } }
+
+#DonateButton {
+  width: 120px;
+  height: 40px;
+  overflow: hidden;
+  margin: 0px 5px; }
+  #DonateButton #DonateButtonImage {
+    height: 40px;
+    width: 120px;
+    background-color: #F17267;
+    border: solid 1px #C9524C;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer; }
+    #DonateButton #DonateButtonImage:hover {
+      opacity: 0.8; }
+

@@ -50,7 +50,7 @@ class Announcements extends React.Component {
     console.log(this.props.allAnnouncements)
     return(
       <div>
-        <title>PDP</title>
+        <title>PDP - Announcements</title>
         <Header CurrentPage="Announcements"/>
         {announcements}
         <Sidebar headline="Archive">{ArchiveItems}</Sidebar>

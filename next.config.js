@@ -10,9 +10,9 @@ module.exports = withCSS(withSASS({
       },
     };
   }),
-  distDir: 'build',
   env: {
-    SANITY_TOKEN: process.env.SANITY_TOKEN,
-    EMAILJS_UID: process.env.EMAILJS_UID
-  }
+    sanity_token: process.env.sanity_token,
+    emailjs_uid: process.env.emailjs_uid
+  },
+  target: 'serverless'
 }));

@@ -31512,7 +31512,7 @@ var client = sanityClient({
 
 /***/ }),
 
-/***/ 4:
+/***/ 0:
 /*!****************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fisaac%2FDesktop%2FPDP-Website%2Fpages%2Findex.js ***!
   \****************************************************************************************************************************/
@@ -31535,5 +31535,5 @@ module.exports = dll_01f9a3fa864a7b7414d8;
 
 /***/ })
 
-},[[4,"static/runtime/webpack.js","styles"]]]);
+},[[0,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

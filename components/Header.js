@@ -43,10 +43,11 @@ class Header extends React.Component {
           <Dropdown.Menu>
             <Dropdown.Item><Link href="/"><div className="MobileNavigatorInnerItem">Home</div></Link></Dropdown.Item>
             <Dropdown.Item><Link href="/projects"><div className="MobileNavigatorInnerItem">Projects</div></Link></Dropdown.Item>
-            <Dropdown.Item><Link href="/calendar"><div className="MobileNavigatorInnerItem">Calendar</div></Link></Dropdown.Item>
-            <Dropdown.Item><Link href="/blog"><div className="MobileNavigatorInnerItem">Blog</div></Link></Dropdown.Item>
+            <Dropdown.Item><Link href="/press"><div className="MobileNavigatorInnerItem">Press</div></Link></Dropdown.Item>
             <Dropdown.Item><Link href="/contributors"><div className="MobileNavigatorInnerItem">Contributors</div></Link></Dropdown.Item>
             <Dropdown.Item><Link href="/about"><div className="MobileNavigatorInnerItem">About</div></Link></Dropdown.Item>
+            <Dropdown.Item><Link href="/calendar"><div className="MobileNavigatorInnerItem">Calendar</div></Link></Dropdown.Item>
+            <Dropdown.Item><Link href="/announcements"><div className="MobileNavigatorInnerItem">Announcements</div></Link></Dropdown.Item>
             <Dropdown.Item><Link href="/contact"><div className="MobileNavigatorInnerItem">Contact</div></Link></Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
