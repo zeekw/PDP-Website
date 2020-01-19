@@ -27,9 +27,10 @@ export function sortByTimeDelta(data){
 }
 
 // Custom UrlBuilder
-export function SanityImageUrl(ref, options){
+export function SanityImageUrl(image, options){
   // Build assetID
-  var ref = ref.split("-")
+  var fullRef = image.asset._ref
+  var ref = fullRef.split("-")
   var assetID = ref[1]
   var dimensions = ref[2]
   var extension = ref[3]
@@ -47,18 +48,12 @@ export function SanityImageUrl(ref, options){
     params.push("fit=crop")
   }
   if(!("crop" in options)){
-    if("fp-x" in options && "fp-y" in options){
-      params.push("crop=focalpoint")
-    }
-    else {
-      params.push("crop=entropy")
-    }
+    params.push("crop=focalpoint")
+    var focalPoint = findFocalPoint(image)
+    params.push("fp-x=" + focalPoint.x)
+    params.push("fp-y=" + focalPoint.y)
   }
-  if("fp" in options){
-    params.push("fp-x=" + options.fp.x)
-    params.push("fp-y=" + options.fp.y)
-  }
-  params.push("q=70")
+  params.push("q=80")
   params.push("auto=format")
   var queryString = params.join("&")
   // Assemble fullURL

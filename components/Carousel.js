@@ -24,7 +24,7 @@ class HomeCarousel extends React.Component {
         <Carousel.Item key={itemData.id}>
             <Link href={'/' + itemData._type + '/[slug]'} as={'/' + itemData._type + '/' + itemData.slug.current}>
               <div>
-                <img className="d-block w-100" src={SanityImageUrl(itemData.image.asset._ref, {w:"1200", h:"600"})} />
+                <img className="d-block w-100" src={SanityImageUrl(itemData.image, {w:"1200", h:"600"})} />
                 <div className="CarouselCaption">{itemData.title}</div>
               </div>
             </Link>

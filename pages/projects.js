@@ -9,7 +9,7 @@ import '../styles/projects.sass'
 
 const getData = async function(){
   // Get projects to display on page
-  const query = '*[_type == "project"]'
+  const query = '*[_type == "project"] | order(order asc, title asc)'
   var data = await Sanity.fetch(query, {})
   return {data: data}
 }

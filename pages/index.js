@@ -13,7 +13,8 @@ import '../styles/index.sass'
 
 const getData = async function(){
   // Get announcements and events to display on page
-  const query = '*[_type == "event" || _type == "announcement"]'
+  var currentDate = (new Date()).toISOString()
+  const query = `*[(_type == "event" && date >= "${currentDate}") || _type == "announcement"]`
   var data = await Sanity.fetch(query, {})
   // Sort data by timeDelta value in ascending order
   var sortedData = sortByTimeDelta(data)
@@ -48,13 +49,15 @@ class Index extends React.Component {
             </p>
           </div>
         </div>
-        <div id="Upcoming">
-          <h1 id="UpcomingHeader">Upcoming:</h1>
-          <DocumentList data={Events} headline={"title"} primaryDetail={"readableDate"} secondaryDetail={"readablePrice"} image={"image"} maxLength={3} body="Description"/>
-        </div>
-        <div id="Announcements">
-          <h1 id="AnnouncementsHeader">Announcements:</h1>
-          <DocumentList data={Announcements} headline={"title"} primaryDetail={"readableDate"} secondaryDetail={null} image={"heroImage"} maxLength={3} body="body"/>
+        <div id="Lists">
+          <div id="Upcoming">
+            <h1 id="UpcomingHeader">Upcoming:</h1>
+            <DocumentList data={Events} headline={"title"} primaryDetail={"readableDate"} secondaryDetail={"readablePrice"} image={"image"} maxLength={3} body="Description"/>
+          </div>
+          <div id="Announcements">
+            <h1 id="AnnouncementsHeader">Announcements:</h1>
+            <DocumentList data={Announcements} headline={"title"} primaryDetail={"readableDate"} secondaryDetail={null} image={"heroImage"} maxLength={3} body="body"/>
+          </div>
         </div>
         <Footer/>
       </div>

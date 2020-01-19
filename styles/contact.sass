@@ -22,6 +22,7 @@
     height: 200px
     font-size: 24px
     margin-bottom: 20px
+    border: 1px solid #ccc
   button
     width: 130px
     height: 50px
@@ -30,5 +31,37 @@
     background-color: #1daeff
     color: white
     border-style: none
+    outline: none
     &:hover
       opacity: 0.8
+  #notification
+    padding: 3px
+    color: white
+    margin-top: 10px
+    -webkit-font-smoothing: antialiased
+    text-align: center
+  #notification.good
+    background-color: #94f285
+  #notification.bad
+    background-color: #f17267
+
+#AlternateMethods
+  width: 100%
+  max-width: 500px
+  margin: 20px auto
+  -webkit-font-smoothing: antialiased
+  background-color: #eee
+  color: #333
+  text-align: center
+  padding: 20px
+  p
+    line-height: 22px
+    font-weight: 400
+    font-size: 18px
+  h3
+    font-size: 22px
+    text-transform: uppercase
+    font-weight: 700
+    line-height: 20px
+  h5
+    color: blue

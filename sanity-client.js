@@ -2,6 +2,7 @@ export const projectId = "ocpl5ulk"
 export const dataset = "pdp-data"
 
 const sanityClient = require('@sanity/client')
+
 const client = sanityClient({
   projectId: projectId,
   dataset: dataset,

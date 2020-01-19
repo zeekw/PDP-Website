@@ -7,12 +7,20 @@ import Footer from '../../components/Footer.js'
 import Document from '../../components/Document.js'
 
 class Announcement extends React.Component {
+  state = {
+    data: {}
+  }
+  componentDidMount(){
+    var data = this.props.data
+    data.readableDate = (new Date(data._createdAt)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})
+    this.setState({data: data})
+  }
   render(){
     return(
       <div>
         <title>PDP</title>
         <Header CurrentPage="Announcement"/>
-        <Document data={this.props.data} image={"heroImage"} headline={"title"} body={"body"}/>
+        <Document data={this.props.data} image={"heroImage"} headline={"title"} body={"body"} primaryDetail={"readableDate"}/>
         <Footer/>
       </div>
     )

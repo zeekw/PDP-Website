@@ -37,7 +37,7 @@ export default class ProjectList extends React.Component {
         <li>
           <Link href={'/project/' + itemData.slug.current}>
             <div className="Project">
-              <img src={SanityImageUrl(itemData.image.asset._ref, {w: 1500, h:500, fp: findFocalPoint(itemData.image)})}/>
+              <img src={SanityImageUrl(itemData.image, {w: 1500, h:500})}/>
               <div className="ProjectTitle">
                 <h1>{itemData.title}</h1>
                 <div className="Stripe"></div>

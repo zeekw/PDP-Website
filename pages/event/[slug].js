@@ -6,15 +6,23 @@ import Header from '../../components/Header.js'
 import Footer from '../../components/Footer.js'
 import Document from '../../components/Document.js'
 
-// import '../../styles/document.sass'
-
 class Event extends React.Component {
+  state = {
+    data: {}
+  }
+  componentDidMount(){
+    var data = this.props.data
+    data.readableDate = (new Date(data.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})
+    data.readablePrice = (data.price == 0) ? '' : ("$" + data.price)
+    data.actionElement = data.action.url ? <a href={data.action.url}>{data.action.text}</a> : ''
+    this.setState({data: data})
+  }
   render(){
     return(
       <div>
         <title>PDP</title>
         <Header CurrentPage="Event"/>
-        <Document data={this.props.data} image={"image"} headline={"title"} body={"Description"}/>
+        <Document data={this.state.data} image={"image"} headline={"title"} primaryDetail={"readableDate"} secondaryDetail={"readablePrice"} tertiaryDetail={"actionElement"} body={"Description"}/>
         <Footer/>
       </div>
     )

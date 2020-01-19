@@ -1,9 +1,18 @@
 import Sanity from './sanity-client.js'
-import imageUrlBuilder from '@sanity/image-url'
 
-const BlockContent = require('@sanity/block-content-to-react')
+export const BlockContent = require('@sanity/block-content-to-react')
 
-const ImageUrlBuilder = imageUrlBuilder(Sanity)
-
-exports.BlockContent = BlockContent
-exports.ImageUrlBuilder = ImageUrlBuilder
+export const serializers = {
+  types: {
+    code: props => (
+      <pre data-language={props.node.language}>
+        <code>{props.node.code}</code>
+      </pre>
+    ),
+    file: props => (FileRefToElement(props)),
+    embed: props => (
+      <div className="embed" dangerouslySetInnerHTML={{__html:
+    props.node.code}}></div>
+    )
+  }
+}

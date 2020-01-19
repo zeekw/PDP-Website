@@ -57,8 +57,7 @@ export default class DocumentList extends React.Component {
         return ''
       }
       else {
-        var assetID = item[imageKey].asset._ref
-        return <img class="DocumentListItemImage" src={SanityImageUrl(assetID, {w:730,h:730})}/>
+        return <img class="DocumentListItemImage" src={SanityImageUrl(item[imageKey], {w:730,h:730})}/>
       }
     }
 
@@ -75,7 +74,7 @@ export default class DocumentList extends React.Component {
                       <span className="DocumentListItemInfoDivider" style={{opacity: (secondaryDetailKey == null || itemData[secondaryDetailKey] == '') ? '0' : '1'}}> | </span>
                       <span className="DocumentListItemPrice" style={{display: (itemData[secondaryDetailKey] == '') ? 'none' : 'inline'}}>{itemData[secondaryDetailKey]}</span>
                     </Textfit>
-                    <Truncate lines={3} ellipsis={"..."} className="DocumentListItemDescription">
+                    <Truncate lines={4} ellipsis={"..."} className="DocumentListItemDescription">
                       <BlockContent blocks={itemData[bodyKey]} serializers={serializers} projectId="ocpl5ulk" dataset="pdp-data"></BlockContent>
                     </Truncate>
                   </div>
