@@ -23,6 +23,7 @@ class Sidebar extends React.Component {
         <style jsx global>{`
           #Sidebar {
             z-index: 10;
+            position: fixed !important;
           }
 
           #Sidebar.hidden {

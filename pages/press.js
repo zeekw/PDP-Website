@@ -155,7 +155,7 @@ Press.getInitialProps = async function(context){
     }
   }
   // Get names of ALL clips
-  query = `*[_type == "pressclip"]{ title, slug }`
+  query = `*[_type == "pressclip"]{ title, slug } | order(date desc)`
   var allClips = await Sanity.fetch(query, {})
   return {data: data, pageIncrement: pageIncrement, allClips: allClips}
 }

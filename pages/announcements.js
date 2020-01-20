@@ -138,7 +138,7 @@ Announcements.getInitialProps = async function(context){
   var query = `*[_type == "announcement"] | order(date desc) [0...${pageIncrement}]`
   var data = await Sanity.fetch(query, {})
   // Get names of ALL announcements
-  query = `*[_type == "announcement"]{ title, slug }`
+  query = `*[_type == "announcement"]{ title, slug } | order(date desc)`
   var allAnnouncements = await Sanity.fetch(query, {})
   console.log(allAnnouncements)
   return {data: data, pageIncrement: pageIncrement, allAnnouncements: allAnnouncements}

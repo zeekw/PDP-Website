@@ -22,7 +22,7 @@ class PressClip extends React.Component {
         <title>{this.props.data.title}</title>
         <Favicon url={"../../static/favicon.ico"}/>
         <Header CurrentPage="Press Clip"/>
-        <Document data={this.props.data} image={"heroImage"} headline={"title"} body={"body"} primaryDetail={"primaryDetail"} secondaryDetail={"secondaryDetail"}/>
+        <Document data={this.props.data} image={"heroImage"} headline={"title"} body={"body"} primaryDetail={"primaryDetail"} tertiaryDetail={"tertiaryDetail"}/>
         <Footer/>
       </div>
     )
@@ -38,10 +38,10 @@ PressClip.getInitialProps = async function(context){
   data = data[0]
   // Construct secondaryDetail
   if(typeof data.articleURL !== "undefined"){
-    data.secondaryDetail = <a href={data.articleURL}>{"Read it on " + data.organization + " here"}</a>
+    data.tertiaryDetail = `<a href="${data.articleURL}">Read it on ${data.organization} here</a>`
   }
   else {
-    data.secondaryDetail = ''
+    data.tertiaryDetail = ''
   }
   return {data: data}
 }
