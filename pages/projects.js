@@ -6,7 +6,7 @@ import Footer from '../components/Footer.js'
 import ProjectList from '../components/ProjectList.js'
 import Favicon from 'react-favicon'
 
-import '../styles/projects.sass'
+// import '../styles/projects.sass'
 
 const getData = async function(){
   // Get projects to display on page
@@ -29,6 +29,23 @@ class Projects extends React.Component {
         </div>
         <ProjectList data={this.props.data}/>
         <Footer/>
+        <style jsx>{`
+          #ProjectsDescription {
+            background-color: #eee;
+            width: 100%;
+            max-width: 920px;
+            margin: 30px auto;
+            color: #333;
+            text-align: center;
+            padding: 20px 15px;
+            padding-bottom: 3px;
+          }
+          #ProjectsDescription p {
+            line-height: 22px;
+            font-weight: 400;
+            font-size: 18px;
+          }
+      `}</style>
       </div>
     )
   }

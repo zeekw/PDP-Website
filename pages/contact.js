@@ -1,7 +1,7 @@
 import React from "react"
 import Link from 'next/link'
 import autoBind from 'react-autobind'
-import "../styles/contact.sass"
+// import "../styles/contact.sass"
 import Favicon from 'react-favicon'
 
 import Header from "../components/Header.js"
@@ -52,8 +52,7 @@ class Contact extends React.Component {
         "email": this.state.email,
         "message": this.state.message
       }
-      console.log(process.env.EMAILJS_UID)
-      emailjs.send("default_service","contact_form", template_params, process.env.emailjs_uid).then((response) => {
+      emailjs.send("default_service","contact_form", template_params, "user_iwNYDzYdroz7xWuiQ7c0q").then((response) => {
          this.setState({sendStatus: "sent", notification: "Message sent", notificationType: "good"})
       }, (err) => {
          console.log('FAILED...', err)
@@ -87,6 +86,102 @@ class Contact extends React.Component {
           </div>
         </div>
         <Footer/>
+        <style jsx global>{`
+          #contact-form {
+            box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            width: 600px;
+            max-width: 100%;
+            padding: 40px;
+          }
+
+          #contact-form h1 {
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 20px;
+          }
+
+          #contact-form label {
+            display: block;
+            font-weight: 700;
+          }
+
+          #contact-form input {
+            display: block;
+            font-size: 28px;
+            width: 100%;
+            margin-bottom: 10px;
+          }
+
+          #contact-form textarea {
+            display: block;
+            width: 100%;
+            height: 200px;
+            font-size: 24px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+          }
+
+          #contact-form button {
+            width: 130px;
+            height: 50px;
+            margin: 0 auto;
+            display: block;
+            background-color: #1daeff;
+            color: white;
+            border-style: none;
+            outline: none;
+          }
+
+          #contact-form button:hover {
+            opacity: 0.8;
+          }
+
+          #contact-form #notification {
+            padding: 3px;
+            color: white;
+            margin-top: 10px;
+            -webkit-font-smoothing: antialiased;
+            text-align: center;
+          }
+
+          #contact-form #notification.good {
+            background-color: #94f285;
+          }
+
+          #contact-form #notification.bad {
+            background-color: #f17267;
+          }
+
+          #AlternateMethods {
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto;
+            -webkit-font-smoothing: antialiased;
+            background-color: #eee;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+          }
+
+          #AlternateMethods p {
+            line-height: 22px;
+            font-weight: 400;
+            font-size: 18px;
+          }
+
+          #AlternateMethods h3 {
+            font-size: 22px;
+            text-transform: uppercase;
+            font-weight: 700;
+            line-height: 20px;
+          }
+
+          #AlternateMethods h5 {
+            color: blue;
+          }
+
+        `}</style>
       </div>
     )
   }

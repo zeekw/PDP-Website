@@ -2,7 +2,7 @@ import React from "react"
 import Link from "next/link"
 import autoBind from 'react-autobind'
 import Head from 'next/head'
-import "../styles/document.sass"
+// import "../styles/document.sass"
 import Sanity from '../sanity-client.js'
 import { SanityImageUrl } from '../helperFunctions.js'
 import File from "./File.js"
@@ -87,10 +87,82 @@ class Document extends React.Component {
             <span id="DetailDivider" style={{display: ((secondaryDetailKey != null || typeof secondaryDetailKey !== 'undefined') && this.props.data[secondaryDetailKey] != '' ? 'inline' : 'none')}}>|</span>
             <span id="SecondaryDetail">{this.props.data[secondaryDetailKey]}</span>
             <span id="DetailDivider" style={{display: ((tertiaryDetailKey != null || typeof tertiaryDetailKey !== 'undefined') && this.props.data[tertiaryDetailKey] != '' ? 'inline' : 'none')}}>|</span>
-            <span id="tertiaryDetail">{this.props.data[tertiaryDetailKey]}</span>
+            <span id="tertiaryDetail" dangerouslySetInnerHTML={{ __html: this.props.data[tertiaryDetailKey] }}></span>
           </h6>
           <BlockContent id="DocumentDescription" blocks={this.props.data[bodyKey]} serializers={serializers} projectId="ocpl5ulk" dataset="pdp-data" />
         </div>
+        <style jsx global>{`
+          #body {
+          transition: opacity 0.2s;
+          }
+
+          #DocumentContainer {
+          margin: 0 auto;
+          max-width: 60%;
+          min-width: 800px;
+          min-height: 300px;
+          background-color: #222;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          margin-bottom: 50px;
+          }
+          #DocumentContainer #ImageContainer {
+          width: 100%;
+          padding-bottom: 50%;
+          background-color: #eee;
+          position: relative;
+          }
+          #DocumentContainer #ImageContainer #DocumentImage {
+          width: 100%;
+          min-width: 50px;
+          align-self: center;
+          position: absolute;
+          }
+          #DocumentContainer #DocumentText {
+          color: white;
+          padding: 30px;
+          width: 100%;
+          }
+          #DocumentContainer #DocumentText div figure {
+          text-align: center;
+          width: 100%;
+          }
+          #DocumentContainer #DocumentText div figure img {
+          max-width: 100%;
+          }
+          #DocumentContainer #DocumentText h3 {
+          font-weight: 700;
+          }
+          #DocumentContainer #DocumentText h6 {
+          color: #ccc;
+          font-weight: 700;
+          font-size: 16px;
+          -webkit-font-smoothing: antialiased;
+          }
+          #DocumentContainer #DocumentText h6 span {
+          margin-right: 10px;
+          }
+          #DocumentContainer #DocumentText h6 #DetailDivider {
+          font-size: 20px;
+          font-weight: 500;
+          }
+          #DocumentContainer #DocumentText h6 #SecondaryDetail {
+          color: #f17267;
+          }
+          #DocumentContainer #DocumentText p {
+          padding-top: 5px;
+          }
+
+          @media (max-width: 800px) {
+          #DocumentContainer {
+            width: 100%;
+            max-width: auto;
+            min-width: 100%;
+          }
+          }
+        `}</style>
       </div>
     )
   }

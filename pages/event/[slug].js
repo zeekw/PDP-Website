@@ -15,7 +15,7 @@ class Event extends React.Component {
     var data = this.props.data
     data.readableDate = (new Date(data.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})
     data.readablePrice = (data.price == 0) ? '' : ("$" + data.price)
-    data.actionElement = (data.action && data.action.url && data.action.text) ? <a href={data.action.url}>{data.action.text}</a> : ''
+    data.actionElement = (data.action && data.action.url && data.action.text) ? `<a href="${data.action.url}">${data.action.text}</a>` : ''
     this.setState({data: data})
   }
   render(){

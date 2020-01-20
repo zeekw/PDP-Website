@@ -10,7 +10,7 @@ import Footer from '../components/Footer.js'
 
 import { sortByTimeDelta } from '../helperFunctions.js'
 
-import '../styles/index.sass'
+// import '../styles/index.sass'
 
 const getData = async function(){
   // Get announcements and events to display on page
@@ -62,6 +62,102 @@ class Index extends React.Component {
           </div>
         </div>
         <Footer/>
+        <style jsx global>{`
+          a:hover {
+            text-decoration: none !important;
+          }
+
+          #hiddenDataContainer {
+            display: none;
+          }
+
+          #AboutContainer {
+            max-width: 60%;
+            min-width: 800px;
+            margin: 0 auto;
+            -webkit-font-smoothing: antialiased;
+          }
+
+          #AboutContainer #MissionStatement {
+            background-color: #eee;
+            width: 100%;
+            max-width: 920px;
+            margin: 30px auto;
+            color: #333;
+            text-align: center;
+            padding: 20px 15px;
+            padding-bottom: 3px;
+          }
+
+          #AboutContainer #MissionStatement p {
+            line-height: 22px;
+            font-weight: 400;
+            font-size: 18px;
+          }
+
+          #AboutContainer #MissionStatement h3 {
+            font-size: 22px;
+            text-transform: uppercase;
+            font-weight: 700;
+            line-height: 20px;
+          }
+
+          #Upcoming, #Announcements {
+            width: calc(60% - 70px);
+            min-width: 600px;
+            margin: 0 auto;
+          }
+
+          #Upcoming #UpcomingHeader, #Upcoming #AnnouncementsHeader, #Announcements #UpcomingHeader, #Announcements #AnnouncementsHeader {
+            font-weight: 700;
+            margin-bottom: 20px;
+          }
+
+          @media (max-width: 800px) {
+            #Upcoming, #Announcements {
+                width: calc(100% - 30px);
+                min-width: auto;
+                margin: 15px;
+            }
+            #Upcoming .DocumentListItem .DocumentListItemBody, #Announcements .DocumentListItem .DocumentListItemBody {
+                width: 100%;
+                max-height: none !important;
+            }
+            #Upcoming .DocumentListItem .DocumentListItemBody .DocumentListItemImage, #Announcements .DocumentListItem .DocumentListItemBody .DocumentListItemImage {
+                float: none !important;
+                width: 100% !important;
+            }
+            #Upcoming .DocumentListItem .DocumentListItemBody .DocumentListItemText, #Announcements .DocumentListItem .DocumentListItemBody .DocumentListItemText {
+                float: none !important;
+                width: 100% !important;
+                padding-left: 0px !important;
+            }
+            #Upcoming .DocumentListItem .DocumentListItemBody .DocumentListItemText div.DocumentListItemName div, #Announcements .DocumentListItem .DocumentListItemBody .DocumentListItemText div.DocumentListItemName div {
+                font-size: 18px !important;
+                white-space: normal;
+            }
+            #Upcoming .DocumentListItem .DocumentListItemBody .DocumentListItemText .DocumentListItemDescription, #Announcements .DocumentListItem .DocumentListItemBody .DocumentListItemText .DocumentListItemDescription {
+                padding-left: 3px;
+                margin-bottom: 0px !important;
+            }
+            #CarouselContainer {
+                max-width: 100% !important;
+                min-width: auto !important;
+                margin-bottom: 0px;
+            }
+            #AboutContainer {
+                max-width: 100% !important;
+                min-width: auto !important;
+            }
+          }
+
+          @media (max-width: 650px) {
+            #CarouselContainer {
+                margin-top: 30px !important;
+            }
+          }
+
+        `}</style>
       </div>
     )
   }

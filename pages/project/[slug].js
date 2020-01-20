@@ -6,7 +6,7 @@ import Header from '../../components/Header.js'
 import Footer from '../../components/Footer.js'
 import DocumentList from '../../components/DocumentList.js'
 import { SanityImageUrl, findFocalPoint } from "../../helperFunctions.js"
-import "../../styles/project.sass"
+// import "../../styles/project.sass"
 import { BlockContent, serializers } from "../../sanity-tools.js"
 import Favicon from 'react-favicon'
 
@@ -38,6 +38,130 @@ class Project extends React.Component {
           </div>
         </div>
         <Footer/>
+        <style jsx global>{`
+          #body {
+            transition: opacity 0.2s;
+          }
+
+          #project-body {
+            width: 100%;
+            max-width: 920px;
+            margin: 0 auto;
+          }
+
+          #project-body #hero {
+            position: relative;
+          }
+
+          #project-body #hero #ImageContainer {
+            width: 100%;
+            padding-bottom: 50%;
+            background-color: #eee;
+          }
+
+          #project-body #hero #ImageContainer img {
+            width: 100%;
+            position: absolute;
+          }
+
+          #project-body #hero #ProjectTitle {
+            background-color: #00000099;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            border-bottom: solid 5px #f17267;
+            padding: 0px 10px;
+            padding-top: 10px;
+            padding-bottom: 5px;
+          }
+
+          #project-body #hero #ProjectTitle h1 {
+            color: white;
+            font-weight: 700;
+            line-height: 35px;
+          }
+
+          #project-body #project-description {
+            padding: 30px 0px;
+          }
+
+          #project-body #project-description .embed {
+            text-align: center;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            height: auto;
+          }
+
+          #project-body #project-description .embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
+
+          #project-body #Related {
+            padding: 0px 30px;
+          }
+
+          #project-body #Related #RelatedEventsHeader, #project-body #Related #RelatedPostsHeader {
+            font-weight: 700;
+            margin-bottom: 20px;
+          }
+
+          @media (max-width: 375px) {
+            #ProjectTitle {
+                width: 100%;
+                max-width: none !important;
+                height: 100%;
+                bottom: 0px !important;
+                left: 0px !important;
+            }
+            #ProjectTitle h1 {
+                line-height: 40px !important;
+            }
+          }
+
+          @media (max-width: 920px) {
+            #project-description {
+                padding: 30px 20px !important;
+            }
+          }
+
+          @media (max-width: 800px) {
+            #Related {
+                width: calc(100% - 30px);
+                min-width: auto;
+                margin: 15px;
+                padding: 0px !important;
+            }
+            #Related .UpcomingListItem .UpcomingListItemBody {
+                width: 100%;
+                max-height: none !important;
+            }
+            #Related .UpcomingListItem .UpcomingListItemBody .UpcomingListItemImage {
+                float: none !important;
+                width: 100% !important;
+            }
+            #Related .UpcomingListItem .UpcomingListItemBody .UpcomingListItemText {
+                float: none !important;
+                width: 100% !important;
+                padding-left: 0px !important;
+            }
+            #Related .UpcomingListItem .UpcomingListItemBody .UpcomingListItemText .UpcomingListItemName-Mobile {
+                font-weight: 700;
+                margin: 10px 0px;
+            }
+            #Related .UpcomingListItem .UpcomingListItemBody .UpcomingListItemText .UpcomingListItemDescription {
+                padding-left: 3px;
+                margin-bottom: 0px !important;
+            }
+          }
+
+        `}</style>
       </div>
     )
   }

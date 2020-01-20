@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
-import '../styles/calendar.sass'
+// import '../styles/calendar.sass'
 let CalendarComponent
 export default function FullCalendar(props) {
   const [calendarLoaded, setCalendarLoaded] = useState(false)
@@ -27,6 +27,45 @@ export default function FullCalendar(props) {
   return (
     <div>
       {showCalendar(props)}
+      <style jsx global>{`
+        @import url(~@fullcalendar/core/main.css);
+        @import url(~@fullcalendar/daygrid/main.css);
+        #CalendarContainer {
+          width: calc(100% - 40px);
+          max-width: 700px;
+          margin: 0 auto;
+        }
+
+        #CalendarContainer .fc-event {
+          background-color: #f17267;
+          border-color: #D8594E;
+        }
+
+        #CalendarContainer .fc-button-primary {
+          background-color: #f17267;
+          border-color: #D8594E;
+        }
+
+        #CalendarContainer .fc-content {
+          white-space: normal;
+          max-height: 50px;
+          overflow: scroll;
+        }
+
+        #CalendarContainer .fc-day-grid-container {
+          height: auto !important;
+        }
+
+        @media (max-width: 375px) {
+          .fc-toolbar {
+              display: block !important;
+          }
+          .fc-left {
+              margin-bottom: 10px;
+          }
+        }
+
+      `}</style>
     </div>
   )
 }

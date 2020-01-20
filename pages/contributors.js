@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Sanity from '../sanity-client.js'
 import Favicon from 'react-favicon'
 
-import "../styles/contributors.sass"
+// import "../styles/contributors.sass"
 
 import Header from "../components/Header.js"
 import Footer from "../components/Footer.js"
@@ -12,15 +12,14 @@ class Contributors extends React.Component {
 
   render() {
     var CurrentContributors = this.props.currentContributors.map((itemData) => (
-      <a href={itemData.url}><li>{itemData.name}</li></a>
+      <a key={itemData._id} href={itemData.url}><li>{itemData.name}</li></a>
     ))
     var PastContributors = this.props.pastContributors.map((itemData) => (
-      <a href={itemData.url}><li>{itemData.name}</li></a>
+      <a key={itemData._id} href={itemData.url}><li>{itemData.name}</li></a>
     ))
     var Donors = this.props.donors.map((itemData) => (
-      <span><span>{itemData.firstName + " " + itemData.lastName}</span><span>&nbsp;•&nbsp;</span></span>
+      <span key={itemData._id}><span>{itemData.firstName + " " + itemData.lastName}</span><span>&nbsp;•&nbsp;</span></span>
     ))
-    console.log(this.props.donors)
     return (
       <div id="body">
         <title>PDP - Contributors</title>
@@ -44,6 +43,72 @@ class Contributors extends React.Component {
           </p>
         </div>
         <Footer/>
+        <styles jsx global>{`
+          #Contributors {
+            padding: 20px;
+            margin-top: 30px;
+          }
+
+          #Contributors h3 {
+            text-align: center;
+            font-weight: 700;
+            font-size: 24px;
+          }
+
+          #Contributors h4 {
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+            font-style: italic;
+          }
+
+          #Contributors ul {
+            list-style: none;
+            text-align: center;
+            padding-left: 0px;
+            margin: 0 auto;
+            width: 700px;
+            max-width: 100%;
+            margin-bottom: 30px;
+          }
+
+          #Contributors ul li {
+            font-size: 16px;
+            font-weight: 400;
+            padding: 3px 0px;
+          }
+
+          #Donors {
+            padding: 20px;
+            width: 700px;
+            max-width: 100%;
+            margin: 0 auto;
+          }
+
+          #Donors h3 {
+            text-align: center;
+            font-weight: 700;
+            font-size: 24px;
+          }
+
+          #Donors h4 {
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+            font-style: italic;
+          }
+
+          #Donors p {
+            font-size: 16px;
+            font-weight: 400;
+            text-align: center;
+          }
+
+          #Donors p span {
+            display: inline-block !important;
+          }
+
+        `}</styles>
       </div>
     )
   }
