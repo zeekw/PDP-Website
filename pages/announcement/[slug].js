@@ -20,8 +20,9 @@ class Announcement extends React.Component {
     return(
       <div>
         <title>{this.props.data.title}</title>
+        <Favicon url={"../../static/favicon.ico"}/>
         <Header CurrentPage="Announcement"/>
-        <Document data={this.props.data} image={"heroImage"} headline={"title"} body={"body"} primaryDetail={"readableDate"}/>
+        <Document data={this.props.data} image={"image"} headline={"title"} body={"body"} primaryDetail={"readableDate"}/>
         <Footer/>
       </div>
     )

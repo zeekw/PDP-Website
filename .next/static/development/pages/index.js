@@ -30192,7 +30192,7 @@ function (_React$Component) {
           lineNumber: 56
         },
         __self: this
-      }, "Upcoming:"), __jsx(_components_DocumentList_js__WEBPACK_IMPORTED_MODULE_13__["default"], {
+      }, Events.length > 0 ? "Upcoming:" : ""), __jsx(_components_DocumentList_js__WEBPACK_IMPORTED_MODULE_13__["default"], {
         data: Events,
         headline: "title",
         primaryDetail: "readableDate",
@@ -30219,12 +30219,12 @@ function (_React$Component) {
           lineNumber: 60
         },
         __self: this
-      }, "Announcements:"), __jsx(_components_DocumentList_js__WEBPACK_IMPORTED_MODULE_13__["default"], {
+      }, Announcements.length > 0 ? "Announcements:" : ""), __jsx(_components_DocumentList_js__WEBPACK_IMPORTED_MODULE_13__["default"], {
         data: Announcements,
         headline: "title",
         primaryDetail: "readableDate",
         secondaryDetail: null,
-        image: "heroImage",
+        image: "image",
         maxLength: 3,
         body: "body",
         __source: {

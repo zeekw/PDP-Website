@@ -3371,7 +3371,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
         lineNumber: 56
       },
       __self: this
-    }, "Upcoming:"), __jsx(_components_DocumentList_js__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }, Events.length > 0 ? "Upcoming:" : ""), __jsx(_components_DocumentList_js__WEBPACK_IMPORTED_MODULE_6__["default"], {
       data: Events,
       headline: "title",
       primaryDetail: "readableDate",
@@ -3398,12 +3398,12 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
         lineNumber: 60
       },
       __self: this
-    }, "Announcements:"), __jsx(_components_DocumentList_js__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }, Announcements.length > 0 ? "Announcements:" : ""), __jsx(_components_DocumentList_js__WEBPACK_IMPORTED_MODULE_6__["default"], {
       data: Announcements,
       headline: "title",
       primaryDetail: "readableDate",
       secondaryDetail: null,
-      image: "heroImage",
+      image: "image",
       maxLength: 3,
       body: "body",
       __source: {

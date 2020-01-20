@@ -43,7 +43,7 @@ class Announcements extends React.Component {
       announcement.readableDate = (new Date(announcement._createdAt)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: "numeric", minute: "numeric"})
     }
     var announcements = data.map(itemData => (
-      <Document data={itemData} image={"heroImage"} headline={"title"} body={"body"} primaryDetail={"readableDate"}/>
+      <Document data={itemData} image={"image"} headline={"title"} body={"body"} primaryDetail={"readableDate"}/>
     ))
     var ArchiveItems = this.props.allAnnouncements.map(itemData => (
       <Link href={"/pressclip/" + itemData.slug.current} to={"/announcement/" + itemData.slug.current}><li>{itemData.title}</li></Link>

@@ -40,7 +40,7 @@ class Index extends React.Component {
     return(
       <div>
         <title>PDP</title>
-        <Favicon url={"../static/favicon.ico"} />
+        <Favicon url={"../static/favicon.ico"}/>
         <Header CurrentPage="Home"/>
         <Carousel data={this.props.data}/>
         <div id="AboutContainer">
@@ -53,12 +53,12 @@ class Index extends React.Component {
         </div>
         <div id="Lists">
           <div id="Upcoming">
-            <h1 id="UpcomingHeader">Upcoming:</h1>
+            <h1 id="UpcomingHeader">{Events.length > 0 ? "Upcoming:" : ""}</h1>
             <DocumentList data={Events} headline={"title"} primaryDetail={"readableDate"} secondaryDetail={"readablePrice"} image={"image"} maxLength={3} body="Description"/>
           </div>
           <div id="Announcements">
-            <h1 id="AnnouncementsHeader">Announcements:</h1>
-            <DocumentList data={Announcements} headline={"title"} primaryDetail={"readableDate"} secondaryDetail={null} image={"heroImage"} maxLength={3} body="body"/>
+            <h1 id="AnnouncementsHeader">{Announcements.length > 0 ? "Announcements:" : ""}</h1>
+            <DocumentList data={Announcements} headline={"title"} primaryDetail={"readableDate"} secondaryDetail={null} image={"image"} maxLength={3} body="body"/>
           </div>
         </div>
         <Footer/>

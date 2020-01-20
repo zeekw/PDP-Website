@@ -62,12 +62,15 @@ class Document extends React.Component {
     }
     var returnImg = function(item){
       if(imageKey == null){
+        console.log("imageKey == null")
         return ''
       }
       else if(!(imageKey in item)){
+        console.log("!(imageKey in item)")
         return ''
       }
       else if(!("asset" in item[imageKey])){
+        console.log('!("asset" in item[imageKey])')
         return ''
       }
       else {
