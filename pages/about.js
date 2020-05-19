@@ -3,17 +3,20 @@ import Link from 'next/link'
 import Sanity from "../sanity-client.js"
 import Favicon from 'react-favicon'
 
-// import "../styles/about.sass"
-
 import Header from "../components/Header.js"
 import Footer from "../components/Footer.js"
+const BlockContent = require('@sanity/block-content-to-react')
 
 class About extends React.Component {
   render() {
     var BoardMembers = this.props.boardMembers.map((itemData) => (
       <li>{
-        itemData.firstName + " " + itemData.lastName +
-        ((typeof itemData.role !== "undefined" && itemData.role != "") ? (", " + itemData.role) : (""))
+        itemData.hasOwnProperty("url") && itemData.url != "" ?
+        <a href={itemData.url}>
+          {(itemData.firstName + " " + itemData.lastName + ((typeof itemData.role !== "undefined" && itemData.role != "") ? (", " + itemData.role) : ("")))}
+        </a>
+        :
+        (itemData.firstName + " " + itemData.lastName + ((typeof itemData.role !== "undefined" && itemData.role != "") ? (", " + itemData.role) : ("")))
       }</li>
     ))
     return (
@@ -21,15 +24,13 @@ class About extends React.Component {
         <title>PDP - About Us</title>
         <Favicon url={"../static/favicon.ico"}/>
         <Header CurrentPage="About"/>
-        <div id="MissionContainer">
-          <div id="MissionStatement">
-            <h3>Our Mission</h3>
-            <p>
-              The mission of Philadelphia Dance Projects is to support contemporary dance through Projects that encourage artists and audiences to more fully participate and engage in the experience and pursuit of dance as an evolving form.
-            </p>
-            <Link href="/page/history" as="/page/history"><h5>Read About Our History</h5></Link>
+        {this.props.blockContent == null ? "" :
+          <div id="MissionContainer">
+            <div id="MissionStatement">
+              <BlockContent id="BlockContent" blocks={this.props.blockContent.body} projectId="ocpl5ulk" dataset="pdp-data" />
+            </div>
           </div>
-        </div>
+        }
         <div id="BoardMembers">
           <h3>Board of Directors</h3>
           <ul>
@@ -46,7 +47,6 @@ class About extends React.Component {
             max-width: 100%;
             width: 800px;
             margin: 0 auto;
-            -webkit-font-smoothing: antialiased;
           }
 
           #MissionContainer #MissionStatement {
@@ -60,22 +60,8 @@ class About extends React.Component {
             padding-bottom: 3px;
           }
 
-          #MissionContainer #MissionStatement p {
-            line-height: 22px;
-            font-weight: 400;
-            font-size: 18px;
-          }
-
-          #MissionContainer #MissionStatement h3 {
-            font-size: 22px;
-            text-transform: uppercase;
-            font-weight: 700;
-            line-height: 20px;
-          }
-
-          #MissionContainer #MissionStatement h5 {
-            color: blue;
-            cursor: pointer;
+          #MissionStatement img {
+            max-width: 100%;
           }
 
           #BoardMembers {
@@ -111,7 +97,11 @@ About.getInitialProps = async function(context){
   var query = `*[_type == "boardmember"] | order(order asc, lastName asc)`
   var boardMembers = await Sanity.fetch(query, {})
 
-  return {boardMembers: boardMembers}
+  // Get Block Content
+  var query = `*[_type == "aboutpage"][0] | order(_updatedAt desc)`
+  var blockContent = await Sanity.fetch(query, {})
+
+  return {boardMembers: boardMembers, blockContent: blockContent}
 }
 
 export default About

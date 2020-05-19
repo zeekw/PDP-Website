@@ -21,7 +21,7 @@ class Page extends React.Component {
         <title>{this.props.data.title}</title>
         <Favicon url={"../../static/favicon.ico"}/>
         <Header CurrentPage="Page"/>
-        <Document data={this.props.data} image={"heroImage"} headline={"title"} body={"body"}/>
+        <Document data={this.props.data} image={"image"} headline={"title"} body={"body"}/>
         <Footer/>
       </div>
     )

@@ -22,7 +22,7 @@ class PressClip extends React.Component {
         <title>{this.props.data.title}</title>
         <Favicon url={"../../static/favicon.ico"}/>
         <Header CurrentPage="Press Clip"/>
-        <Document data={this.props.data} image={"heroImage"} headline={"title"} body={"body"} primaryDetail={"primaryDetail"} tertiaryDetail={"tertiaryDetail"}/>
+        <Document data={this.props.data} image={"image"} headline={"title"} body={"body"} primaryDetail={"primaryDetail"} tertiaryDetail={"tertiaryDetail"}/>
         <Footer/>
       </div>
     )

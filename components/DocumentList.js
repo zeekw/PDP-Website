@@ -43,6 +43,12 @@ export default class DocumentList extends React.Component {
           <pre data-language={props.node.language}>
             <code>{props.node.code}</code>
           </pre>
+        ),
+        file: props => (
+          <div></div>
+        ),
+        embed: props => (
+          <div></div>
         )
       }
     }

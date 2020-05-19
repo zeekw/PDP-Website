@@ -87,7 +87,6 @@ export default class ProjectList extends React.Component {
               padding-top: 10px;
               padding-bottom: 5px;
               max-width: 80%;
-              -webkit-font-smoothing: antialiased;
             }
             #ProjectList li .Project .ProjectTitle h1 {
               color: white;

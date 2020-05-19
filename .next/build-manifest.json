@@ -23,11 +23,11 @@
       "static/runtime/polyfills.js",
       "static/runtime/polyfills.js.map"
     ],
-    "/event/[slug]": [
+    "/index": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/index": [
+    "/news": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

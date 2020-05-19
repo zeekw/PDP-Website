@@ -8,8 +8,7 @@ import BottomScrollListener from 'react-bottom-scroll-listener';
 import Sidebar from "../components/Sidebar.js";
 import Link from 'next/link'
 import Favicon from 'react-favicon'
-
-// import "../styles/sidebar.sass"
+import PressList from '../components/PressList.js'
 
 class Press extends React.Component {
   constructor() {
@@ -48,12 +47,6 @@ class Press extends React.Component {
   }
   render(){
     var data = this.state.clips
-    for(var clip of data){
-      clip.readableDate = (new Date(clip.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric'})
-    }
-    var clips = data.map(itemData => (
-      <Document key={itemData._id} data={itemData} image={"heroImage"} headline={"title"} body={"body"} primaryDetail={"primaryDetail"} tertiaryDetail={"tertiaryDetail"}/>
-    ))
     var ArchiveItems = this.props.allClips.map(itemData => (
       <Link key={itemData._id} href={"/pressclip/" + itemData.slug.current} as={"/pressclip/" + itemData.slug.current}><li>{itemData.title}</li></Link>
     ))
@@ -62,7 +55,7 @@ class Press extends React.Component {
         <title>PDP - Press</title>
         <Favicon url={"../static/favicon.ico"}/>
         <Header CurrentPage="Press"/>
-        {clips}
+        <PressList data={this.state.clips}/>
         <Sidebar headline="Archive">{ArchiveItems}</Sidebar>
         <BottomScrollListener onBottom={this.getNextPage}/>
         <Footer/>
@@ -142,7 +135,7 @@ class Press extends React.Component {
 
 Press.getInitialProps = async function(context){
   // Get pressclips
-  const pageIncrement = 2
+  const pageIncrement = 10
   var query = `*[_type == "pressclip"]{ "primaryDetail": author + " for " + organization + " - " + date, ... } | order(date desc) [0...${pageIncrement}]`
   var data = await Sanity.fetch(query, {})
   // Construct secondaryDetail

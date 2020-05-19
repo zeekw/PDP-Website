@@ -13,7 +13,25 @@ class Event extends React.Component {
   }
   componentDidMount(){
     var data = this.props.data
-    data.readableDate = (new Date(data.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})
+    if(data.hasOwnProperty("enddate")){
+      if(data.hasOwnProperty("hideTime") && data.hideTime){
+        var readableStart = (new Date(data.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric'})
+        var readableEnd = (new Date(data.enddate)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric'})
+      }
+      else {
+        var readableStart = (new Date(data.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})
+        var readableEnd = (new Date(data.enddate)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})
+      }
+      data.readableDate = readableStart + " – " + readableEnd
+    }
+    else {
+      if(data.hasOwnProperty("hideTime") && data.hideTime){
+        data.readableDate = (new Date(data.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric'})
+      }
+      else {
+        data.readableDate = (new Date(data.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})
+      }
+    }
     data.readablePrice = (data.price == 0) ? '' : ("$" + data.price)
     data.actionElement = (data.action && data.action.url && data.action.text) ? `<a href="${data.action.url}">${data.action.text}</a>` : ''
     this.setState({data: data})

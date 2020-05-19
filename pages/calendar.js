@@ -4,7 +4,6 @@ import autoBind from 'react-autobind'
 import FullCalendar from '../components/FullCalendar-NoSSR.js'
 import ReactTooltip from 'react-tooltip'
 import Sanity from "../sanity-client.js"
-// import "../styles/calendar.sass"
 import Favicon from 'react-favicon'
 
 import Header from "../components/Header.js"
@@ -92,6 +91,12 @@ Calendar.getInitialProps = async function(context){
   // Get Events
   var query = `*[_type == "event"]{"url": "/event/" + slug.current, ...}`
   var events = await Sanity.fetch(query, {})
+
+  for(var event of events){
+    if(event.hasOwnProperty("enddate")){
+      event.end = event.enddate
+    }
+  }
 
   return {data: events}
 }

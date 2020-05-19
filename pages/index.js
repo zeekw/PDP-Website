@@ -10,16 +10,21 @@ import Footer from '../components/Footer.js'
 
 import { sortByTimeDelta } from '../helperFunctions.js'
 
-// import '../styles/index.sass'
+const BlockContent = require('@sanity/block-content-to-react')
 
 const getData = async function(){
   // Get announcements and events to display on page
   var currentDate = (new Date()).toISOString()
-  const query = `*[(_type == "event" && date >= "${currentDate}") || _type == "announcement"]`
+  var query = `*[(_type == "event" && date >= "${currentDate}")]`
   var data = await Sanity.fetch(query, {})
   // Sort data by timeDelta value in ascending order
   var sortedData = sortByTimeDelta(data)
-  return {data: sortedData}
+
+  // Get blockContent
+  var query = `*[_type == "homepage"][0] | order(_updatedAt desc)`
+  var blockContent = await Sanity.fetch(query, {})
+
+  return {data: sortedData, blockContent: blockContent}
 }
 
 class Index extends React.Component {
@@ -28,7 +33,25 @@ class Index extends React.Component {
       return obj._type === "event"
     })
     for(var event of Events){
-      event.readableDate = (new Date(event.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})
+      if(event.hasOwnProperty("enddate")){
+        if(event.hasOwnProperty("hideTime") && event.hideTime){
+          var readableStart = (new Date(event.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric'})
+          var readableEnd = (new Date(event.enddate)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric'})
+        }
+        else {
+          var readableStart = (new Date(event.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})
+          var readableEnd = (new Date(event.enddate)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})
+        }
+        event.readableDate = readableStart + " – " + readableEnd
+      }
+      else {
+        if(event.hasOwnProperty("hideTime") && event.hideTime){
+          event.readableDate = (new Date(event.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric'})
+        }
+        else {
+          event.readableDate = (new Date(event.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})
+        }
+      }
       event.readablePrice = (event.price == 0) ? '' : ("$" + event.price)
     }
     var Announcements = this.props.data.filter(obj => {
@@ -43,22 +66,16 @@ class Index extends React.Component {
         <Favicon url={"../static/favicon.ico"}/>
         <Header CurrentPage="Home"/>
         <Carousel data={this.props.data}/>
-        <div id="AboutContainer">
-          <div id="MissionStatement">
-            <h3>Our Mission</h3>
-            <p>
-              The mission of Philadelphia Dance Projects is to support contemporary dance through Projects that encourage artists and audiences to more fully participate and engage in the experience and pursuit of dance as an evolving form.
-            </p>
+        {this.props.blockContent == null ? "" :
+          <div id="AboutContainer">
+            <div id="MissionStatement">
+              <BlockContent id="BlockContent" blocks={this.props.blockContent.body} projectId="ocpl5ulk" dataset="pdp-data" />
+            </div>
           </div>
-        </div>
+        }
         <div id="Lists">
           <div id="Upcoming">
-            <h1 id="UpcomingHeader">{Events.length > 0 ? "Upcoming:" : ""}</h1>
             <DocumentList data={Events} headline={"title"} primaryDetail={"readableDate"} secondaryDetail={"readablePrice"} image={"image"} maxLength={3} body="Description"/>
-          </div>
-          <div id="Announcements">
-            <h1 id="AnnouncementsHeader">{Announcements.length > 0 ? "Announcements:" : ""}</h1>
-            <DocumentList data={Announcements} headline={"title"} primaryDetail={"readableDate"} secondaryDetail={null} image={"image"} maxLength={3} body="body"/>
           </div>
         </div>
         <Footer/>
@@ -75,7 +92,6 @@ class Index extends React.Component {
             max-width: 60%;
             min-width: 800px;
             margin: 0 auto;
-            -webkit-font-smoothing: antialiased;
           }
 
           #AboutContainer #MissionStatement {

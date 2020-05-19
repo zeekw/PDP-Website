@@ -9,9 +9,7 @@ import Sidebar from "../components/Sidebar.js";
 import Link from 'next/link'
 import Favicon from 'react-favicon'
 
-// import "../styles/sidebar.sass"
-
-class Announcements extends React.Component {
+class News extends React.Component {
   constructor() {
     super();
     autoBind(this);
@@ -132,7 +130,7 @@ class Announcements extends React.Component {
   }
 }
 
-Announcements.getInitialProps = async function(context){
+News.getInitialProps = async function(context){
   // Get announcements
   const pageIncrement = 2
   var query = `*[_type == "announcement"] | order(date desc) [0...${pageIncrement}]`
@@ -144,4 +142,4 @@ Announcements.getInitialProps = async function(context){
   return {data: data, pageIncrement: pageIncrement, allAnnouncements: allAnnouncements}
 }
 
-export default Announcements;
+export default News;

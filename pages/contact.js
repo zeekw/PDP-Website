@@ -141,7 +141,6 @@ class Contact extends React.Component {
             padding: 3px;
             color: white;
             margin-top: 10px;
-            -webkit-font-smoothing: antialiased;
             text-align: center;
           }
 
@@ -157,7 +156,6 @@ class Contact extends React.Component {
             width: 100%;
             max-width: 500px;
             margin: 20px auto;
-            -webkit-font-smoothing: antialiased;
             background-color: #eee;
             color: #333;
             text-align: center;

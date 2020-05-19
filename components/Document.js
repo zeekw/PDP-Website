@@ -139,7 +139,6 @@ class Document extends React.Component {
           color: #ccc;
           font-weight: 700;
           font-size: 16px;
-          -webkit-font-smoothing: antialiased;
           }
           #DocumentContainer #DocumentText h6 span {
           margin-right: 10px;
@@ -154,7 +153,10 @@ class Document extends React.Component {
           #DocumentContainer #DocumentText p {
           padding-top: 5px;
           }
-
+          .embed {
+            text-align: center;
+            margin: 30px auto;
+          }
           @media (max-width: 800px) {
           #DocumentContainer {
             width: 100%;
