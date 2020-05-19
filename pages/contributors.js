@@ -43,7 +43,7 @@ class Contributors extends React.Component {
           </p>
         </div>
         <Footer/>
-        <styles jsx global>{`
+        <style jsx global>{`
           #Contributors {
             padding: 20px;
             margin-top: 30px;
@@ -108,7 +108,7 @@ class Contributors extends React.Component {
             display: inline-block !important;
           }
 
-        `}</styles>
+        `}</style>
       </div>
     )
   }

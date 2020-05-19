@@ -23,14 +23,6 @@
       "static/runtime/polyfills.js",
       "static/runtime/polyfills.js.map"
     ],
-    "/announcement/[slug]": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/announcements": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
     "/event/[slug]": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"

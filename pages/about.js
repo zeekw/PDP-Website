@@ -43,8 +43,8 @@ class About extends React.Component {
           }
 
           #MissionContainer {
-            max-width: 60%;
-            min-width: 800px;
+            max-width: 100%;
+            width: 800px;
             margin: 0 auto;
             -webkit-font-smoothing: antialiased;
           }

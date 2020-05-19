@@ -104,7 +104,8 @@ export default class ProjectList extends React.Component {
                 left: 0px !important;
               }
               .ProjectTitle h1 {
-                line-height: 40px !important;
+                line-height: 35px !important;
+                font-size: 30px
               }
             }
         `}</style>
