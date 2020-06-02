@@ -153,6 +153,13 @@ class Document extends React.Component {
           #DocumentContainer #DocumentText p {
           padding-top: 5px;
           }
+          #DocumentContainer #DocumentText blockquote {
+            text-align: center;
+            margin: 0 auto;
+            font-style: italic;
+            font-size: 20px;
+            width: calc(100% - 100px);
+          }
           .embed {
             text-align: center;
             margin: 30px auto;

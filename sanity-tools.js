@@ -2,7 +2,7 @@ import Sanity from './sanity-client.js'
 
 export const BlockContent = require('@sanity/block-content-to-react')
 
-export const serializers = {
+export var serializers = {
   types: {
     code: props => (
       <pre data-language={props.node.language}>

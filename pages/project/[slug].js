@@ -7,11 +7,33 @@ import Footer from '../../components/Footer.js'
 import DocumentList from '../../components/DocumentList.js'
 import { SanityImageUrl, findFocalPoint } from "../../helperFunctions.js"
 // import "../../styles/project.sass"
-import { BlockContent, serializers } from "../../sanity-tools.js"
+import { BlockContent } from "../../sanity-tools.js"
 import Favicon from 'react-favicon'
+import File from "../../components/File.js"
 
 class Project extends React.Component {
   render(){
+    var serializers = {
+      types: {
+        code: props => (
+          <pre data-language={props.node.language}>
+            <code>{props.node.code}</code>
+          </pre>
+        ),
+        file: props => {
+          var _ref = props.node.asset._ref
+          var splitRef = _ref.split('-')
+          var reassembledFilename = splitRef[1] + '.' + splitRef[2]
+          var url = 'https://cdn.sanity.io/files/ocpl5ulk/pdp-data/' + reassembledFilename
+          var Element = <File src={url}/>
+          return Element
+        },
+        embed: props => (
+          <div className="embed" dangerouslySetInnerHTML={{__html:
+        props.node.code}}></div>
+        )
+      }
+    }
     return(
       <div>
         <title>{this.props.project.title}</title>
@@ -85,6 +107,21 @@ class Project extends React.Component {
             padding: 30px 0px;
           }
 
+          #project-body #project-description figure {
+            width: 100%;
+            // height: 450px;
+            max-height: 80vh;
+            min-height: 200px;
+          }
+
+          #project-body #project-description figure img {
+            max-width: 100%;
+            max-height: inherit;
+            min-height: inherit;
+            display: block;
+            margin: 0 auto;
+          }
+
           #project-body #project-description .embed {
             text-align: center;
             position: relative;
@@ -93,6 +130,7 @@ class Project extends React.Component {
             overflow: hidden;
             max-width: 100%;
             height: auto;
+            margin: 30px;
           }
 
           #project-body #project-description .embed iframe {

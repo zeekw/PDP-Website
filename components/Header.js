@@ -22,10 +22,10 @@ class Header extends React.Component {
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <link rel="stylesheet" href="../static/bootstrap.min.css" />
         </Head>
-        <img src="../static/logo-inverted.svg"/>
+        <Link href="/"><img src="../static/logo-inverted.svg"/></Link>
         <ul id="Navigator">
           <Link href="/"><li style={NavStyle("Home")}>Home</li></Link>
-          <Link href="/about"><li style={NavStyle("About")}>About</li></Link>
+          <Link href="/#about"><li style={NavStyle("About")}>About</li></Link>
           <Link href="/projects"><li style={NavStyle("Projects")}>Projects</li></Link>
           <Link href="/press"><li style={NavStyle("Press")}>Press</li></Link>
           <Link href="/contributors"><li style={NavStyle("Contributors")}>Contributors</li></Link>
@@ -40,7 +40,7 @@ class Header extends React.Component {
 
           <Dropdown.Menu>
             <Dropdown.Item><Link href="/"><div className="MobileNavigatorInnerItem">Home</div></Link></Dropdown.Item>
-            <Dropdown.Item><Link href="/about"><div className="MobileNavigatorInnerItem">About</div></Link></Dropdown.Item>
+            <Dropdown.Item><Link href="/#about"><div className="MobileNavigatorInnerItem">About</div></Link></Dropdown.Item>
             <Dropdown.Item><Link href="/projects"><div className="MobileNavigatorInnerItem">Projects</div></Link></Dropdown.Item>
             <Dropdown.Item><Link href="/press"><div className="MobileNavigatorInnerItem">Press</div></Link></Dropdown.Item>
             <Dropdown.Item><Link href="/contributors"><div className="MobileNavigatorInnerItem">Contributors</div></Link></Dropdown.Item>
