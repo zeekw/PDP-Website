@@ -76,3 +76,5 @@ sendgrid.env
 
 .next
 build
+
+.vercel

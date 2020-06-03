@@ -29,6 +29,9 @@ export function sortByTimeDelta(data){
 // Custom UrlBuilder
 export function SanityImageUrl(image, options){
   // Build assetID
+  if(typeof image == "undefined"){
+    return null
+  }
   var fullRef = image.asset._ref
   var ref = fullRef.split("-")
   var assetID = ref[1]

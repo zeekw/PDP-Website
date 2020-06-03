@@ -15,7 +15,6 @@ class Project extends React.Component {
   render(){
     const BlockRenderer = props => {
       const {style = 'normal'} = props.node;
-      console.log(style)
       if (/^h\d/.test(style)) {
         const level = style.replace(/[^\d]/g, '')
         return React.createElement(style, { className: `heading-${level}`}, props.children)
@@ -76,7 +75,9 @@ class Project extends React.Component {
             <h1 id="RelatedEventsHeader">{this.props.relatedEvents.length > 0 ? 'Related Events:' : ''}</h1>
             <DocumentList data={this.props.relatedEvents} maxLength={3} image={"image"} headline={"title"} primaryDetail={"readableDate"} secondaryDetail={"readablePrice"} body={"Description"}/>
             <h1 id="RelatedPostsHeader">{this.props.relatedPress.length > 0 ? 'Related Press:' : ''}</h1>
-            <DocumentList data={this.props.relatedPress} maxLength={3} image={"heroImage"} headline={"title"} primaryDetail={"readableDate"} secondaryDetail={null} body={"body"}/>
+            <DocumentList data={this.props.relatedPress} maxLength={3} image={"image"} headline={"title"} primaryDetail={"readableDate"} secondaryDetail={null} body={"body"}/>
+            <h1 id="RelatedNewsHeader">{this.props.relatedNews.length > 0 ? 'Related News:' : ''}</h1>
+            <DocumentList data={this.props.relatedNews} maxLength={3} image={"image"} headline={"title"} primaryDetail={"readableDate"} secondaryDetail={null} body={"body"}/>
           </div>
         </div>
         <Footer/>
@@ -181,7 +182,7 @@ class Project extends React.Component {
             padding: 0px 30px;
           }
 
-          #project-body #Related #RelatedEventsHeader, #project-body #Related #RelatedPostsHeader {
+          #project-body #Related #RelatedEventsHeader, #project-body #Related #RelatedPostsHeader, #RelatedNewsHeader {
             font-weight: 700;
             margin-bottom: 20px;
           }
@@ -250,23 +251,28 @@ Project.getInitialProps = async function(context){
   var project = projects[0]
   // Get related events
   var currentDate = (new Date()).toISOString()
-  query = `*[_type == "event" && relatedProjects[]._ref == "${project._id}" && date >= "${currentDate}"]`
+  query = `*[_type == "event" && relatedProjects[]._ref == "${project._id}" && date >= "${currentDate}"] | order(date asc)`
   var relatedEvents = await Sanity.fetch(query, {})
   for(var event of relatedEvents){
-    event.readableDate = (new Date(event.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})
+    if(event.hasOwnProperty("hideTime") && event.hideTime == true){
+      event.readableDate = (new Date(event.date)).toLocaleDateString([], {year:'numeric', month: '2-digit', day:'numeric'})
+    }
+    else {
+      event.readableDate = (new Date(event.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})
+    }
     event.readablePrice = (event.price == 0) ? '' : ("$" + event.price)
   }
   // Get related press
-  query = `*[_type == "pressclip" && relatedProjects[]._ref == "${project._id}"]`
+  query = `*[_type == "pressclip" && relatedProjects[]._ref == "${project._id}"] | order(date desc)`
   var relatedPress = await Sanity.fetch(query, {})
   for(var clip of relatedPress){
-    clip.readableDate = (new Date(clip.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})
+    clip.readableDate = (new Date(clip.date + " UTC-4:00")).toLocaleDateString([], {year:'numeric', month: '2-digit', day:'numeric'})
   }
   // Get related news
-  query = `*[_type == "news" && relatedProjects[]._ref == "${project._id}"]`
+  query = `*[_type == "news" && relatedProjects[]._ref == "${project._id}"] | order(_createdAt desc)`
   var relatedNews = await Sanity.fetch(query, {})
   for(var post of relatedNews){
-    post.readableDate = (new Date(post.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})
+    post.readableDate = (new Date(post._createdAt)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})
   }
   // Send props
   return {project: project, relatedEvents: relatedEvents, relatedPress: relatedPress, relatedNews: relatedNews}

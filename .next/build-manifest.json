@@ -4,6 +4,10 @@
     "static/development/dll/dll_4471373bb9c3b64b6fb7.js.map"
   ],
   "pages": {
+    "/": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
     "/_app": [
       "static/runtime/webpack.js",
       "static/css/styles.chunk.css",
@@ -19,15 +23,23 @@
       "static/runtime/polyfills.js",
       "static/runtime/polyfills.js.map"
     ],
-    "/news": [
+    "/index": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/news/[slug]": [
+    "/next/dist/pages/_error": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/pressclip/[slug]": [
+    "/press": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/project/[slug]": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/projects": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

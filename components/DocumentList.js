@@ -132,7 +132,6 @@ export default class DocumentList extends React.Component {
           font-weight: 700;
           color: #777;
           font-size: 14px;
-          padding-left: 2px;
           margin-top: -10px;
           }
           #DocumentList .DocumentListItem .DocumentListItemBody .DocumentListItemText .DocumentListItemInfo .DocumentListItemInfoDivider {
