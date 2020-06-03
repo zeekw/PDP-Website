@@ -90,7 +90,7 @@ export default class ProjectList extends React.Component {
             }
             #ProjectList li .Project .ProjectTitle h1 {
               color: white;
-              font-weight: 700;
+              font-weight: 600;
               line-height: 35px;
             }
 

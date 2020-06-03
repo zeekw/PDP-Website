@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<head>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script> -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Local Dance History Project Timeline</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+        <!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+		<![endif]-->
+    <link rel="stylesheet" href="css/reset.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body class="main">
+<header>
+<h1 class="logo"><a href="/project/local-dance-history-project">Home</a></h1>
+<div class="links"><a href="/page/ldhp-artists">Artists</a></div>
+</header>
+    <div id="timeline-embed"></div>
+    <script type="text/javascript">
+        var timeline_config = {
+            width:              '100%',
+            height:             '600',
+            source:             'https://docs.google.com/spreadsheets/d/1MPAm1nSGH5cIG2_BewSfkDO47cvSpg0itj_tWt8KfNQ/pubhtml',
+            embed_id:           'timeline-embed',               //OPTIONAL USE A DIFFERENT DIV ID FOR EMBED
+            start_zoom_adjust:  '1',                            //OPTIONAL TWEAK THE DEFAULT ZOOM LEVEL
+            hash_bookmark:      true,                           //
+            //OPTIONAL LOCATION BAR HASHES
+            maptype: 'toner',//Toner Map
+            gmapkey: 'AIzaSyDIDYRJyimcEOsbaSdLtVQE4Fm8NBuxRTY',
+            //REQUIRED map key
+            font:               'AbrilFatface-Average',             //OPTIONAL FONT
+        }
+    </script>
+    <script type="text/javascript" src="http://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js"></script>
+    <script src="js/imagePatch.js"></script>
+</body>
+</html>

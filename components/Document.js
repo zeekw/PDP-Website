@@ -29,8 +29,27 @@ class Document extends React.Component {
     var secondaryDetailKey = this.props.secondaryDetail
     var tertiaryDetailKey = this.props.tertiaryDetail
     var bodyKey = this.props.body
+    const BlockRenderer = props => {
+      const {style = 'normal'} = props.node;
+      if (/^h\d/.test(style)) {
+        const level = style.replace(/[^\d]/g, '')
+        return React.createElement(style, { className: `heading-${level}`}, props.children)
+      }
+      
+      if (style === 'blockquote') {
+        return <blockquote>- {props.children}</blockquote>
+      }
+
+      if (style === 'caption') {
+        return <caption>{props.children}</caption>
+      }
+      
+      // Fall back to default handling
+      return BlockContent.defaultSerializers.types.block(props)
+    }
     const serializers = {
       types: {
+        block: BlockRenderer,
         code: props => (
           <pre data-language={props.node.language}>
             <code>{props.node.code}</code>
@@ -159,6 +178,15 @@ class Document extends React.Component {
             font-style: italic;
             font-size: 20px;
             width: calc(100% - 100px);
+          }
+          #DocumentContainer #DocumentText caption {
+            display: block;
+            margin-bottom: 20px;
+            color: white;
+            opacity: 0.6;
+            font-style: italic;
+            font-size: 15px;
+            text-align: center;
           }
           .embed {
             text-align: center;

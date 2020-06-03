@@ -16,43 +16,43 @@ class News extends React.Component {
   }
 
   state = {
-    announcements: [],
+    news: [],
     sidebarOpen: false
   }
   componentDidMount(){
     var data = this.props.data
-    this.setState({announcements: data})
+    this.setState({news: data})
   }
   async getNextPage(){
-    var startIndex = this.state.announcements.length
+    var startIndex = this.state.news.length
     var endIndex = startIndex + this.props.pageIncrement
-    var query = `*[_type == "announcement"] | order(date desc) [${startIndex}...${endIndex}]`
+    var query = `*[_type == "news"] | order(date desc) [${startIndex}...${endIndex}]`
     var newData = await Sanity.fetch(query, {})
-    var oldData = this.state.announcements
-    this.setState({announcements:oldData.concat(newData)})
+    var oldData = this.state.news
+    this.setState({news:oldData.concat(newData)})
   }
 
   onSetSidebarOpen(open) {
     this.setState({ sidebarOpen: open });
   }
   render(){
-    var data = this.state.announcements
-    for(var announcement of data){
-      announcement.readableDate = (new Date(announcement._createdAt)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: "numeric", minute: "numeric"})
+    var data = this.state.news
+    for(var post of data){
+      post.readableDate = (new Date(post._createdAt)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: "numeric", minute: "numeric"})
     }
-    var announcements = data.map(itemData => (
+    var news = data.map(itemData => (
       <Document data={itemData} image={"image"} headline={"title"} body={"body"} primaryDetail={"readableDate"}/>
     ))
-    var ArchiveItems = this.props.allAnnouncements.map(itemData => (
-      <Link href={"/pressclip/" + itemData.slug.current} to={"/announcement/" + itemData.slug.current}><li>{itemData.title}</li></Link>
+    var ArchiveItems = this.props.allNews.map(itemData => (
+      <Link href={"/news/" + itemData.slug.current} to={"/news/" + itemData.slug.current}><li>{itemData.title}</li></Link>
     ))
-    console.log(this.props.allAnnouncements)
+    console.log(this.props.allNews)
     return(
       <div>
-        <title>PDP - Announcements</title>
+        <title>PDP - News</title>
         <Favicon url={"../static/favicon.ico"}/>
-        <Header CurrentPage="Announcements"/>
-        {announcements}
+        <Header CurrentPage="News"/>
+        {news}
         <Sidebar headline="Archive">{ArchiveItems}</Sidebar>
         <BottomScrollListener onBottom={this.getNextPage}/>
         <Footer/>
@@ -133,13 +133,12 @@ class News extends React.Component {
 News.getInitialProps = async function(context){
   // Get announcements
   const pageIncrement = 2
-  var query = `*[_type == "announcement"] | order(date desc) [0...${pageIncrement}]`
+  var query = `*[_type == "news"] | order(date desc) [0...${pageIncrement}]`
   var data = await Sanity.fetch(query, {})
   // Get names of ALL announcements
-  query = `*[_type == "announcement"]{ title, slug } | order(date desc)`
-  var allAnnouncements = await Sanity.fetch(query, {})
-  console.log(allAnnouncements)
-  return {data: data, pageIncrement: pageIncrement, allAnnouncements: allAnnouncements}
+  query = `*[_type == "news"]{ title, slug } | order(date desc)`
+  var allNews = await Sanity.fetch(query, {})
+  return {data: data, pageIncrement: pageIncrement, allNews: allNews}
 }
 
 export default News;

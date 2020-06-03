@@ -13,7 +13,27 @@ import File from "../../components/File.js"
 
 class Project extends React.Component {
   render(){
+    const BlockRenderer = props => {
+      const {style = 'normal'} = props.node;
+      console.log(style)
+      if (/^h\d/.test(style)) {
+        const level = style.replace(/[^\d]/g, '')
+        return React.createElement(style, { className: `heading-${level}`}, props.children)
+      }
+      
+      if (style === 'blockquote') {
+        return <blockquote>- {props.children}</blockquote>
+      }
+
+      if (style === 'caption') {
+        return <caption>{props.children}</caption>
+      }
+      
+      // Fall back to default handling
+      return BlockContent.defaultSerializers.types.block(props)
+    }
     var serializers = {
+      block: BlockRenderer,
       types: {
         code: props => (
           <pre data-language={props.node.language}>
@@ -132,6 +152,22 @@ class Project extends React.Component {
             height: auto;
             margin: 30px;
           }
+          #DocumentContainer #DocumentText blockquote {
+            text-align: center;
+            margin: 0 auto;
+            font-style: italic;
+            font-size: 20px;
+            width: calc(100% - 100px);
+          }
+          #DocumentContainer #DocumentText caption {
+            display: block;
+            margin-bottom: 20px;
+            color: white;
+            opacity: 0.6;
+            font-style: italic;
+            font-size: 15px;
+            text-align: center;
+          }
 
           #project-body #project-description .embed iframe {
             position: absolute;
@@ -226,8 +262,14 @@ Project.getInitialProps = async function(context){
   for(var clip of relatedPress){
     clip.readableDate = (new Date(clip.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})
   }
+  // Get related news
+  query = `*[_type == "news" && relatedProjects[]._ref == "${project._id}"]`
+  var relatedNews = await Sanity.fetch(query, {})
+  for(var post of relatedNews){
+    post.readableDate = (new Date(post.date)).toLocaleString([], {year:'numeric', month: '2-digit', day:'numeric', hour: '2-digit', minute:'2-digit'})
+  }
   // Send props
-  return {project: project, relatedEvents: relatedEvents, relatedPress: relatedPress}
+  return {project: project, relatedEvents: relatedEvents, relatedPress: relatedPress, relatedNews: relatedNews}
 }
 
 export default Project;

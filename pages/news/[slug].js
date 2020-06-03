@@ -7,7 +7,7 @@ import Footer from '../../components/Footer.js'
 import Document from '../../components/Document.js'
 import Favicon from 'react-favicon'
 
-class Announcement extends React.Component {
+class Post extends React.Component {
   state = {
     data: {}
   }
@@ -21,7 +21,7 @@ class Announcement extends React.Component {
       <div>
         <title>{this.props.data.title}</title>
         <Favicon url={"../../static/favicon.ico"}/>
-        <Header CurrentPage="Announcement"/>
+        <Header CurrentPage="Post"/>
         <Document data={this.props.data} image={"image"} headline={"title"} body={"body"} primaryDetail={"readableDate"}/>
         <Footer/>
       </div>
@@ -29,14 +29,14 @@ class Announcement extends React.Component {
   }
 }
 
-Announcement.getInitialProps = async function(context){
+Post.getInitialProps = async function(context){
   // Get slug from URL
   var slug = context.query.slug
   // Get event data
-  const query = `*[_type == "announcement" && slug.current == "${slug}"]`
+  const query = `*[_type == "news" && slug.current == "${slug}"]`
   var data = await Sanity.fetch(query, {})
   data = data[0]
   return {data: data}
 }
 
-export default Announcement;
+export default Post;
