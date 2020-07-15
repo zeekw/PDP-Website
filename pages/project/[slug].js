@@ -32,8 +32,8 @@ class Project extends React.Component {
       return BlockContent.defaultSerializers.types.block(props)
     }
     var serializers = {
-      block: BlockRenderer,
       types: {
+        block: BlockRenderer,
         code: props => (
           <pre data-language={props.node.language}>
             <code>{props.node.code}</code>

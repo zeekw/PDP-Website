@@ -6,5 +6,59 @@
       "file": "static/chunks/0.js",
       "publicPath": "static/chunks/0.js"
     }
+  ],
+  "@fullcalendar/daygrid": [
+    {
+      "id": "./node_modules/@fullcalendar/core/main.esm.js",
+      "name": "./node_modules/@fullcalendar/core/main.esm.js",
+      "file": "static/chunks/3.js",
+      "publicPath": "static/chunks/3.js"
+    },
+    {
+      "id": "./node_modules/@fullcalendar/daygrid/main.esm.js",
+      "name": "./node_modules/@fullcalendar/daygrid/main.esm.js",
+      "file": "static/chunks/3.js",
+      "publicPath": "static/chunks/3.js"
+    }
+  ],
+  "@fullcalendar/react": [
+    {
+      "id": "./node_modules/@fullcalendar/core/main.esm.js",
+      "name": "./node_modules/@fullcalendar/core/main.esm.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    },
+    {
+      "id": "./node_modules/@fullcalendar/react/main.esm.js",
+      "name": "./node_modules/@fullcalendar/react/main.esm.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    },
+    {
+      "id": "./node_modules/fast-deep-equal/index.js",
+      "name": "./node_modules/fast-deep-equal/index.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "@fullcalendar/timegrid": [
+    {
+      "id": "./node_modules/@fullcalendar/core/main.esm.js",
+      "name": "./node_modules/@fullcalendar/core/main.esm.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/@fullcalendar/daygrid/main.esm.js",
+      "name": "./node_modules/@fullcalendar/daygrid/main.esm.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/@fullcalendar/timegrid/main.esm.js",
+      "name": "./node_modules/@fullcalendar/timegrid/main.esm.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
   ]
 }

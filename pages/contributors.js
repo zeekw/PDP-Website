@@ -17,9 +17,10 @@ class Contributors extends React.Component {
     var PastContributors = this.props.pastContributors.map((itemData) => (
       <a key={itemData._id} href={itemData.url}><li>{itemData.name}</li></a>
     ))
-    var Donors = this.props.donors.map((itemData) => (
-      <span key={itemData._id}><span>{itemData.firstName + " " + itemData.lastName}</span><span>&nbsp;•&nbsp;</span></span>
+    var Donors = this.props.donors.map((itemData, index) => (
+    <span key={itemData._id}><span>{itemData.firstName + " " + itemData.lastName}</span><span>{(index != this.props.donors.length - 1) ? "\xa0•\xa0" : ""}</span></span>
     ))
+    console.log(Donors)
     return (
       <div id="body">
         <title>PDP - Contributors</title>
